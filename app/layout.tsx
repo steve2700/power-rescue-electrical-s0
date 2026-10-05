@@ -1,6 +1,6 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Inter, Archivo } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css"
@@ -9,84 +9,54 @@ import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { GOOGLE_ADS_CONVERSION_ID } from "@/lib/analytics"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const archivo = Archivo({ subsets: ["latin"], variable: "--font-archivo", weight: ["500", "600", "700", "800"] })
+
+const SITE = "https://powerrescue.co.za"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.boreholeworks.co.za"),
+  metadataBase: new URL(SITE),
   title: {
-    default: "Borehole Works | Borehole Drilling, Pumps & Water Systems in Gauteng",
-    template: "%s | Borehole Works - Gauteng's Water & Pump Specialists",
+    default: "Power Rescue Electrical | Emergency Electricians in Gauteng",
+    template: "%s | Power Rescue Electrical",
   },
   description:
-    "Borehole Works provides borehole drilling, pump installation, solar borehole pumps, irrigation systems, JoJo water tanks, and plumbing services across Gauteng, Pretoria & Johannesburg. Reliable water systems, done right the first time.",
+    "Power Rescue Electrical handles emergency electrical repairs, installations, maintenance, COCs, solar systems and inverter backup across Gauteng and its outskirts. Call or WhatsApp 063 039 2007.",
   keywords:
-    "borehole drilling Gauteng, borehole pump installation Pretoria, solar borehole pumps Johannesburg, irrigation systems Gauteng, JoJo tank installation Pretoria, water tank installer Johannesburg, plumbing services Gauteng, geyser installation Centurion, blocked drains Gauteng, Borehole Works",
-  authors: [{ name: "Borehole Works", url: "https://www.boreholeworks.co.za" }],
-  creator: "Borehole Works",
-  publisher: "Borehole Works",
-  applicationName: "Borehole Works",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#26282B" },
-    ],
-  },
-  manifest: "/site.webmanifest",
+    "emergency electrician Gauteng, electrician Johannesburg, electrician Pretoria, electrical COC, solar installation Gauteng, inverter installation, DB board upgrade, Power Rescue Electrical",
+  authors: [{ name: "Power Rescue Electrical", url: SITE }],
+  creator: "Power Rescue Electrical",
+  publisher: "Power Rescue Electrical",
+  applicationName: "Power Rescue Electrical",
+  robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     locale: "en_ZA",
-    url: "https://www.boreholeworks.co.za",
-    siteName: "Borehole Works",
-    title: "Borehole Works | Borehole Drilling, Pumps & Water Systems in Gauteng",
+    url: SITE,
+    siteName: "Power Rescue Electrical",
+    title: "Power Rescue Electrical | Emergency Electricians in Gauteng",
     description:
-      "Gauteng's trusted borehole and water systems specialists. Drilling, pump installation, solar pumps, irrigation, water tanks and plumbing. Serving Pretoria, Johannesburg & surrounds.",
-    images: [
-      {
-        url: "/logo-square.png",
-        width: 512,
-        height: 512,
-        alt: "Borehole Works Logo",
-      },
-    ],
+      "Emergency repairs, installations, maintenance and solar across Gauteng. Call or WhatsApp 063 039 2007.",
+    images: [{ url: "/pr/hero-db-board.png", width: 1376, height: 768, alt: "Power Rescue electrician working on a distribution board" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Borehole Works | Borehole Drilling & Water Systems Gauteng",
-    description:
-      "Borehole drilling, pump installation, solar pumps, irrigation, water tanks and plumbing across Gauteng. Serving Pretoria, Johannesburg & surrounds.",
-    images: ["/logo-square.png"],
+    title: "Power Rescue Electrical | Gauteng Electricians",
+    description: "Emergency repairs, installations, maintenance and solar across Gauteng.",
+    images: ["/pr/hero-db-board.png"],
   },
-  alternates: {
-    canonical: "https://www.boreholeworks.co.za",
-  },
-  verification: {
-    google: "your-google-verification-code",
-  },
-  category: "Water & Pump Services",
+  alternates: { canonical: SITE },
+  category: "Electrical Services",
   other: {
     "geo.region": "ZA-GP",
     "geo.placename": "Gauteng, South Africa",
-    "geo.position": "-26.1076;28.0567",
-    "ICBM": "-26.1076, 28.0567",
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: "#151a33",
+  width: "device-width",
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -95,11 +65,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en-ZA">
+    <html lang="en-ZA" className={`${inter.variable} ${archivo.variable}`}>
       <head>
-        <meta name="theme-color" content="#26282B" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="format-detection" content="telephone=yes" />
 
         {/* Google Ads conversion tracking - fill in GOOGLE_ADS_CONVERSION_ID in lib/analytics.ts to activate */}
@@ -119,75 +86,35 @@ export default function RootLayout({
           </>
         )}
 
-        {/* Structured Data for Organization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Borehole Works",
-              url: "https://www.boreholeworks.co.za",
-              logo: "https://www.boreholeworks.co.za/logo-icon.png",
-              description: "Borehole drilling, pump installation, solar borehole pumps, irrigation systems, water tanks and plumbing services in Gauteng",
+              "@type": "Electrician",
+              "@id": SITE,
+              name: "Power Rescue Electrical",
+              url: SITE,
+              image: `${SITE}/pr/hero-db-board.png`,
+              telephone: "+27-63-039-2007",
+              email: "info@powerrescue.co.za",
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Johannesburg",
                 addressRegion: "Gauteng",
                 addressCountry: "ZA",
               },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: -26.1076,
-                longitude: 28.0567,
-              },
-              areaServed: ["Gauteng", "Pretoria", "Johannesburg", "Sandton", "Midrand", "Centurion"],
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+27-72-411-5472",
-                contactType: "Customer Service",
-                areaServed: "ZA",
-                availableLanguage: ["en"],
-              },
-            }),
-          }}
-        />
-
-        {/* Structured Data for Local Business */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "@id": "https://www.boreholeworks.co.za",
-              name: "Borehole Works",
-              image: "https://www.boreholeworks.co.za/logo-icon.png",
-              url: "https://www.boreholeworks.co.za",
-              telephone: "+27-72-411-5472",
-              priceRange: "$$",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Johannesburg",
-                addressRegion: "Gauteng",
-                addressCountry: "ZA",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: -26.1076,
-                longitude: 28.0567,
-              },
+              areaServed: ["Gauteng", "Johannesburg", "Pretoria", "Sandton", "Midrand", "Centurion", "East Rand", "West Rand"],
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                opens: "08:00",
-                closes: "17:00",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                opens: "00:00",
+                closes: "23:59",
               },
             }),
           }}
         />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className="font-sans antialiased">
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-grow">{children}</main>
