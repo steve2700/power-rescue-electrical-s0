@@ -1,0 +1,48 @@
+# robots.txt for Borehole Works
+# https://www.boreholeworks.co.za/robots.txt
+
+# Allow all bots to crawl everything
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.boreholeworks.co.za/sitemap.xml
+
+# ===== Search engines =====
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ===== AI assistants and answer engines =====
+
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: CCBot
+User-agent: cohere-ai
+Allow: /
+
+# ===== Block aggressive scrapers =====
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /

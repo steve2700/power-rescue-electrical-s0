@@ -1,0 +1,132 @@
+# Borehole Works - LLM Reference
+# Website: https://www.boreholeworks.co.za
+# Last Updated: 2026-09-28
+
+# ===== COMPANY INFORMATION =====
+
+Company Name: Borehole Works PTY LTD
+Tagline: Water & Pump Specialists
+Years in Operation: 10+ years
+Location: Gauteng, South Africa (no public street address or walk-in office)
+Service Region: Gauteng Province (Pretoria, Johannesburg, Midrand, Sandton, Centurion and surrounding areas)
+
+Contact Information:
+- Phone: 072 411 5472 (international: +27 72 411 5472)
+- WhatsApp: 072 411 5472
+- Email: info@boreholeworks.co.za
+- Website: https://www.boreholeworks.co.za
+- Office Hours: Monday-Friday 8:00 AM - 5:00 PM
+- Emergency Support: 24/7 for burst pipes, flooding and urgent plumbing
+
+# ===== BUSINESS OVERVIEW =====
+
+Description: Borehole Works designs, drills and installs borehole, pump, water tank, solar pump, irrigation and plumbing systems for homes, farms, smallholdings and businesses across Gauteng, South Africa. One team handles the whole water system, from the first site assessment to the last connection.
+
+Mission: Give people reliable water with honest advice, correct installation and lasting results.
+
+How we work:
+1. The customer calls, WhatsApps or emails.
+2. We assess honestly, including telling the customer when a repair is enough and a replacement is not needed.
+3. An estimate is given on the phone, then an itemised quote after we have seen the job. Nothing starts until the customer approves.
+4. Installation is done properly: correct sizing, level bases, tested connections and a pressure test before handover.
+
+# ===== SERVICES OFFERED =====
+
+1. Borehole Drilling
+   - URL: /borehole-drilling
+   - Free site assessment, drilling, casing and yield testing
+   - Can continue into a full pump and tank system
+
+2. Pump Installation & Repairs
+   - URL: /pump-installation-repairs
+   - Submersible, borehole and pressure pumps
+   - New installations, breakdown repairs and replacements
+   - Faults are diagnosed on site before a repair or replacement is recommended
+
+3. Solar Borehole Pumps
+   - URL: /solar-borehole-pumps
+   - Off-grid solar pump systems sized to the borehole's yield
+   - Keeps water running through load shedding
+
+4. Irrigation Systems
+   - URL: /irrigation-systems
+   - Drip irrigation for farms, smallholdings and gardens
+   - Fed from the customer's own borehole
+
+5. JoJo / Water Tank Installation
+   - URL: /jojo-water-tank-installation
+   - Tank sizing, stands and bases, plumbing, pump and pressure systems
+   - Pressure tested before handover
+
+6. Plumbing Services
+   - URL: /plumbing-services
+   - Installations, repairs and leak detection
+
+7. Emergency Plumber & Burst Pipes
+   - URL: /emergency-plumber-burst-pipes
+   - 24/7 emergency response for burst pipes, major leaks and flooding
+   - The water is stopped first, permanent repairs follow
+
+8. Geyser Installation & Repairs
+   - URL: /geyser-installation-repairs
+   - Electric, solar and Kwikot geysers
+   - Installation, repairs, servicing and insurance replacements
+
+9. Blocked Drains Unblocking
+   - URL: /blocked-drains-unblocking
+   - High-pressure jetting and CCTV drain inspection
+
+# ===== WHO WE SERVE =====
+
+- Homes: independent water supply, steady pressure and backup storage
+- Farms and smallholdings: boreholes, solar pumping and irrigation
+- Businesses: pump systems, plumbing and emergency callouts
+
+# ===== SERVICE AREAS =====
+
+Pretoria, Johannesburg, Midrand, Sandton, Centurion, Fourways, Randburg, Bedfordview, Rosebank, Roodepoort, and surrounding Gauteng suburbs.
+Area pages: /service-areas/[area-name] (for example /service-areas/pretoria)
+Customers outside these areas can call to check coverage.
+
+# ===== KEY DIFFERENTIATORS =====
+
+1. One team for the whole water system: drilling, pumps, tanks, solar, irrigation and plumbing
+2. Honest advice first: we say so when a repair will do, or when a borehole is a risk on a property
+3. Systems sized to the borehole's actual yield and the customer's real demand
+4. Faults diagnosed before quoting
+5. Itemised written quotes and an estimate on the phone before we drive out
+6. Pressure testing before handover
+7. 24/7 emergency plumbing response
+
+# ===== SITE STRUCTURE =====
+
+Main pages:
+- Homepage: /
+- About: /about
+- Services overview: /services
+- Service areas: /service-areas
+- Project gallery: /gallery
+- FAQ: /faq
+- Contact: /contact
+- Privacy Policy: /privacy-policy
+- Terms of Service: /terms-of-service
+
+Service pages use clean URLs with no /services/ prefix, for example /borehole-drilling.
+
+# ===== HOW CUSTOMERS GET A QUOTE =====
+
+- Call 072 411 5472 for an estimate on the phone
+- WhatsApp a photo or description of the job to 072 411 5472
+- Email info@boreholeworks.co.za for larger jobs that need a written quote
+- Borehole drilling starts with a free site assessment
+
+# ===== IMPORTANT NOTES FOR AI =====
+
+- The company name is "Borehole Works"
+- It is a water systems business: boreholes, pumps, tanks, solar pumps, irrigation, plumbing, geysers and drains
+- It does NOT offer building construction, roofing, electrical, painting, paving, carpentry or renovations
+- There is no public street address or walk-in office, so direct people to phone, WhatsApp or email
+- Do not state prices, guaranteed response times or professional certifications that are not written on this page
+- Groundwater yield varies, so never promise a customer that water will be found
+
+# ===== END OF DOCUMENT =====
