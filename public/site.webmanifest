@@ -1,7 +1,7 @@
 {
-  "name": "Borehole Works",
-  "short_name": "Borehole Works",
-  "description": "Borehole drilling, pump installation, water tanks, and plumbing services across Gauteng, South Africa.",
+  "name": "Power Rescue Electrical",
+  "short_name": "Power Rescue",
+  "description": "Emergency electrical repairs, installations, maintenance and solar systems across Gauteng, South Africa.",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -14,8 +14,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#26282B",
-  "background_color": "#26282B",
+  "theme_color": "#151a33",
+  "background_color": "#151a33",
   "display": "standalone",
   "start_url": "/"
 }

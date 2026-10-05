@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { EMAIL, PHONE_DISPLAY, PHONE_TEL } from "@/components/contact-info"
 import { SERVICES } from "@/lib/power-rescue"
 import { trackCallClick, trackEmailClick } from "@/lib/analytics"
+import { Logo } from "@/components/logo"
 
 const NAV = [
   { label: "Solar and backup", href: "/#backup" },
@@ -16,20 +17,7 @@ const NAV = [
   { label: "Contact", href: "/contact" },
 ]
 
-export function Logo({ className }: { className?: string }) {
-  return (
-    <Link href="/" className={cn("flex items-center gap-3", className)} aria-label="Power Rescue Electrical home">
-      <span className="relative flex h-11 w-11 items-center justify-center rounded-full bg-accent font-display text-base font-extrabold tracking-tight text-accent-foreground">
-        PR
-        <span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-primary bg-success" aria-hidden="true" />
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="font-display text-lg font-extrabold tracking-tight text-white">Power Rescue</span>
-        <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.32em] text-accent">Electrical</span>
-      </span>
-    </Link>
-  )
-}
+export { Logo }
 
 function Chevron({ open }: { open: boolean }) {
   return (
