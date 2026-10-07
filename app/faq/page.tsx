@@ -1,206 +1,243 @@
-// File path: app/faq/page.tsx
-// Clean URL: https://www.boreholeworks.co.za/faq
-
 import type { Metadata } from "next"
 import Link from "next/link"
-import { CallButton, WhatsAppCta, StickyCallBar, BigPhoneLink } from "@/components/service-cta"
-import { ImageMarquee } from "@/components/image-marquee"
-import { PHONE_DISPLAY } from "@/components/contact-info"
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_NUMBER } from "@/components/contact-info"
 
 export const metadata: Metadata = {
-  title: "FAQ | Borehole Works Gauteng",
+  title: "Electrician FAQ Gauteng",
   description:
-    "Answers to common questions about borehole drilling, pump installation, solar pumps, water tanks and plumbing in Gauteng. Call 072 411 5472 or WhatsApp us.",
-  alternates: {
-    canonical: "https://www.boreholeworks.co.za/faq",
+    "Answers on emergency call-outs, COCs, DB boards, solar and inverter backup across Gauteng. Call or WhatsApp Power Rescue Electrical on 063 039 2007.",
+  alternates: { canonical: "/faq" },
+  openGraph: {
+    url: "/faq",
+    title: "Electrician FAQ Gauteng | Power Rescue Electrical",
+    description: "Straight answers on emergency electricians, COCs, solar and backup power in Gauteng.",
+    images: ["/pr/hero-db-board.png"],
   },
 }
 
-const marqueeImages = [
-  { src: "/borehole_drilling_water_gushing.jpg", alt: "Borehole drilling striking water" },
-  { src: "/pump_installation_hero.jpg", alt: "Pump installation" },
-  { src: "/solar_borehole_pump_aerial_view.jpg", alt: "Solar borehole pump aerial view" },
-  { src: "/jojo_tank_installation.jpg", alt: "Water tank installation" },
-  { src: "/kwikot_geyser_installation.jpg", alt: "Geyser installation" },
-]
+type Faq = { q: string; a: string }
 
-const drillingFaqs = [
+const emergencyFaqs: Faq[] = [
   {
-    q: "How do you know if there's water on my property?",
-    a: "We do a site assessment first, reading the land and using our drilling experience in your specific area of Gauteng to give you an honest probability, before any drilling starts.",
+    q: "Do you offer a 24/7 emergency electrician service?",
+    a: "Yes. Our emergency line is open day and night across Gauteng, including weekends. Call or WhatsApp and we will dispatch the closest available electrician.",
   },
   {
-    q: "What if you drill and don't find water?",
-    a: "It's rare when a proper site assessment has been done first, which is exactly why we don't skip that step. We'll always be upfront about the risk on your specific property before you commit.",
+    q: "My breaker keeps tripping. What should I do?",
+    a: "Switch off the appliances on that circuit and try the breaker once. If it trips again, leave it off and call us. A breaker that keeps tripping is protecting you from an overload or a fault, and resetting it repeatedly can make things worse.",
   },
   {
-    q: "How deep do boreholes usually need to go in Gauteng?",
-    a: "It varies a lot by area, anywhere from around 40m to over 100m. Your site assessment gives you a realistic estimate for your specific property, not a generic industry number.",
+    q: "What if I smell burning or see sparks?",
+    a: "Switch off the main breaker only if it is safe to reach, keep away from water and hot or sparking points, and get everyone out if you see smoke. Call the fire department first, then call us once everyone is safe.",
   },
   {
-    q: "How long does drilling take?",
-    a: "Most residential boreholes are drilled and cased within a day, sometimes two depending on ground conditions. Yield testing typically follows a day or two after that.",
+    q: "Half my house has no power. Is it the DB board?",
+    a: "It can be a tripped breaker, a failed earth leakage unit, a loose connection or a supply fault. We test on site to find the actual cause instead of guessing, then tell you what needs fixing before we start.",
   },
 ]
 
-const pumpFaqs = [
+const installFaqs: Faq[] = [
   {
-    q: "Do you repair pumps you didn't install yourselves?",
-    a: "Yes. Most of our pump callouts are repairs on systems someone else installed. We diagnose the fault first, then tell you honestly whether it's a repair or a replacement, no matter who fitted it originally.",
+    q: "Are your electricians registered?",
+    a: "Yes. Our electricians are registered and we issue Certificates of Compliance where the work requires one.",
   },
   {
-    q: "What types of pumps do you work on?",
-    a: "Submersible, borehole, pressure and booster pumps, across most major brands. If it moves water around your property, we can very likely repair or install it.",
+    q: "Do I need an electrical COC to sell my house?",
+    a: "In South Africa a valid electrical COC is normally required when you sell a property, and insurers often ask for one after a claim. We inspect the installation, repair anything that fails, and issue the certificate.",
   },
   {
-    q: "My borehole pump has stopped working. What's usually wrong?",
-    a: "Most commonly a burnt-out motor, a dropped or damaged cable, or the pump has simply run dry because the borehole yield dropped. We test on site rather than guessing before we quote.",
+    q: "What if the inspection finds problems?",
+    a: "We list what needs attention and quote the repairs. Once the work is done and tested, we issue the certificate.",
   },
   {
-    q: "How do you decide whether to repair or replace a pump?",
-    a: "Age, the specific fault, and cost of parts against a new unit. If a repair genuinely makes sense we'll say so and do it. We don't push a replacement when a repair will do the job for years to come.",
+    q: "Do you take on small jobs like extra plug points or lights?",
+    a: "Yes. Plug points, downlights and outdoor or security lighting are all jobs we do regularly, and we work to leave walls and ceilings tidy.",
+  },
+  {
+    q: "My DB board is old. Should I replace it?",
+    a: "If it still has ceramic fuses, has no earth leakage protection, or shows burn marks or crowded wiring, an upgrade is worth doing. We replace it with a clean, labelled, compliant board.",
   },
 ]
 
-const generalFaqs = [
+const solarFaqs: Faq[] = [
   {
-    q: "Which areas of Gauteng do you cover?",
-    a: "Pretoria, Johannesburg, Midrand, Sandton, Centurion, Randburg, Fourways, Rosebank, Bedfordview and Roodepoort, plus surrounding suburbs. Not sure if you're covered? Just call us.",
+    q: "How do you size a solar or backup system?",
+    a: "We start with what you actually use and what you need to keep running, not a generic package. The system is then designed around that, with room to grow later.",
   },
   {
-    q: "Do you offer emergency callouts?",
-    a: "Yes, for burst pipes and urgent plumbing issues we offer 24/7 emergency response across our service areas.",
+    q: "What stays on during load shedding?",
+    a: "We split out your essential circuits, such as lights, fridge and Wi-Fi, so they run from the inverter and battery. Heavy loads like stoves and geysers usually need a much larger system, so we talk through that with you first.",
+  },
+  {
+    q: "Do you install hybrid inverters and lithium batteries?",
+    a: "Yes. We install hybrid inverters and lithium batteries, with or without solar panels, and wire everything neatly and safely.",
+  },
+  {
+    q: "Is the paperwork included?",
+    a: "Mounting, wiring, commissioning and the required paperwork are part of our solar installations.",
+  },
+]
+
+const generalFaqs: Faq[] = [
+  {
+    q: "Which areas do you cover?",
+    a: "Johannesburg, Pretoria, Sandton, Midrand, Centurion, the East and West Rand and the outskirts of Gauteng. See the full list on our areas page, or call if you are further out.",
+  },
+  {
+    q: "Do you work for businesses as well as homes?",
+    a: "Yes. We work for homeowners, offices, shops and complexes, from once-off repairs to planned maintenance.",
   },
   {
     q: "How do I get a quote?",
-    a: "Call us now, WhatsApp us a photo or description of what you need, or fill in our contact form. We'll give you an estimate on the phone and an itemised quote once we've seen the job.",
+    a: "Call us or WhatsApp a photo or description of the job. We will give you an idea over the phone and a clear quote once we have seen the work.",
+  },
+  {
+    q: "How can I contact you outside office hours?",
+    a: "Our emergency line is open day and night. Call or WhatsApp at any time.",
   },
 ]
 
-const allFaqs = [...drillingFaqs, ...pumpFaqs, ...generalFaqs]
+const SECTIONS = [
+  { id: "emergencies", title: "Emergencies and faults", items: emergencyFaqs },
+  { id: "installations", title: "Installations, COCs and DB boards", items: installFaqs },
+  { id: "solar", title: "Solar and backup power", items: solarFaqs },
+  { id: "general", title: "General", items: generalFaqs },
+]
 
-function FaqSection({ id, title, items }: { id: string; title: string; items: typeof drillingFaqs }) {
-  return (
-    <section id={id} className="scroll-mt-24 py-12">
-      <h2 className="text-2xl font-bold lg:text-3xl">{title}</h2>
-      <div className="mt-6 divide-y divide-border">
-        {items.map((faq) => (
-          <details key={faq.q} className="group py-5">
-            <summary className="cursor-pointer list-none text-lg font-semibold marker:hidden">
-              {faq.q}
-            </summary>
-            <p className="mt-3 leading-relaxed text-muted-foreground">{faq.a}</p>
-          </details>
-        ))}
-      </div>
-    </section>
-  )
-}
+const allFaqs = SECTIONS.flatMap((s) => s.items)
+
+const RELATED = [
+  { href: "/emergency-electrical-repairs", title: "Emergency electrical repairs", copy: "Tripping, burning smells, no power." },
+  { href: "/electrical-coc-certificate", title: "Electrical COC certificates", copy: "For selling your home or insurance." },
+  { href: "/inverter-battery-backup", title: "Inverter and battery backup", copy: "Keep the lights on through load shedding." },
+]
+
+const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi Power Rescue, I have a question.")}`
 
 export default function FaqPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="border-b border-border bg-muted py-14 lg:py-20 overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8">
-          <p className="mb-3 inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-semibold text-secondary">
-            Frequently Asked Questions
-          </p>
-          <h1 className="max-w-2xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-            Answers before you call
-          </h1>
-          <p className="mt-4 max-w-xl text-lg text-muted-foreground">
-            Everything people usually ask us about borehole drilling, pumps, water tanks and plumbing across
-            Gauteng. Can't find your answer? Call now or WhatsApp us directly.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <CallButton size="lg" />
-            <WhatsAppCta size="lg" label="WhatsApp us" />
-          </div>
-        </div>
-
-        {/* Moving image strip */}
-        <div className="mt-10">
-          <ImageMarquee images={marqueeImages} name="faq" direction="left" speed={40} />
-        </div>
-      </section>
-
-      {/* JUMP LINKS */}
-      <section className="border-b border-border py-8">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex flex-wrap gap-3">
-            <a href="#drilling" className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:border-accent hover:text-accent">
-              Borehole Drilling
-            </a>
-            <a href="#pumps" className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:border-accent hover:text-accent">
-              Pumps
-            </a>
-            <a href="#general" className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:border-accent hover:text-accent">
-              General
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <div className="container mx-auto max-w-3xl px-4 lg:px-8">
-        <FaqSection id="drilling" title="Borehole Drilling" items={drillingFaqs} />
-        <FaqSection id="pumps" title="Pumps" items={pumpFaqs} />
-        <FaqSection id="general" title="General" items={generalFaqs} />
-      </div>
-
-      {/* INTERNAL LINKING */}
-      <section className="border-t border-border bg-muted py-14">
-        <div className="container mx-auto px-4 lg:px-8">
-          <h2 className="text-2xl font-bold">Related services</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            <Link href="/borehole-drilling" className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-accent">
-              <h3 className="font-bold">Borehole drilling</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Free site assessments across Gauteng.</p>
-            </Link>
-            <Link href="/pump-installation-repairs" className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-accent">
-              <h3 className="font-bold">Pump installation & repairs</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Submersible, borehole and pressure pumps.</p>
-            </Link>
-            <Link href="/jojo-water-tank-installation" className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-accent">
-              <h3 className="font-bold">Water tank installation</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Stand, plumbing and pump, in one visit.</p>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CLOSING CTA */}
-      <section className="bg-primary py-16 text-primary-foreground">
-        <div className="container mx-auto px-4 text-center lg:px-8">
-          <h2 className="text-3xl font-bold lg:text-4xl">Still have a question?</h2>
-          <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
-            Call now or send us a message on WhatsApp, we're happy to talk it through.
-          </p>
-          <BigPhoneLink />
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <CallButton size="lg" />
-            <WhatsAppCta size="lg" label="WhatsApp us" />
-          </div>
-        </div>
-      </section>
-
-      <div className="h-20 md:hidden" aria-hidden="true" />
-      <StickyCallBar />
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: allFaqs.map((faq) => ({
+            mainEntity: allFaqs.map((f) => ({
               "@type": "Question",
-              name: faq.q,
-              acceptedAnswer: { "@type": "Answer", text: faq.a },
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
             })),
           }),
         }}
       />
+
+      {/* Hero */}
+      <section className="bg-primary text-white">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+          <nav aria-label="Breadcrumb" className="text-sm text-white/60">
+            <Link href="/" className="hover:text-white">
+              Home
+            </Link>
+            <span className="mx-2">/</span>
+            <span className="text-white">FAQ</span>
+          </nav>
+          <h1 className="mt-6 max-w-3xl text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
+            Electrician FAQs, <span className="text-accent">answered straight.</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75">
+            What people ask us about emergencies, COCs, DB boards, solar and backup power across Gauteng. Can&apos;t find
+            yours? Call or WhatsApp us.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center gap-4">
+            <a
+              href={`tel:${PHONE_TEL}`}
+              className="flex h-14 items-center rounded-full bg-white px-7 font-semibold text-primary transition-transform hover:scale-[1.02]"
+            >
+              Call {PHONE_DISPLAY}
+            </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-14 items-center rounded-full border border-white/25 px-7 font-semibold transition-colors hover:bg-white/10"
+            >
+              WhatsApp us
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Jump links */}
+      <nav aria-label="FAQ topics" className="border-b border-border bg-background">
+        <ul className="mx-auto flex max-w-7xl flex-wrap gap-3 px-4 py-6 sm:px-6">
+          {SECTIONS.map((s) => (
+            <li key={s.id}>
+              <a
+                href={`#${s.id}`}
+                className="inline-flex rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary"
+              >
+                {s.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* FAQ sections */}
+      <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:py-12">
+        {SECTIONS.map((section) => (
+          <section key={section.id} id={section.id} className="scroll-mt-32 py-10">
+            <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">{section.title}</h2>
+            <div className="mt-6 divide-y divide-border border-y border-border">
+              {section.items.map((f) => (
+                <details key={f.q} className="group py-5">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-6 font-display text-lg font-bold text-foreground marker:hidden [&::-webkit-details-marker]:hidden">
+                    {f.q}
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 h-2 w-2 shrink-0 rotate-45 border-b-2 border-r-2 border-primary transition-transform group-open:-rotate-[135deg] group-open:translate-y-1"
+                    />
+                  </summary>
+                  <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      {/* Related */}
+      <section className="border-t border-border bg-secondary/50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <h2 className="font-display text-3xl font-bold text-foreground">Related services</h2>
+          <ul className="mt-8 grid gap-5 sm:grid-cols-3">
+            {RELATED.map((r) => (
+              <li key={r.href}>
+                <Link
+                  href={r.href}
+                  className="block h-full rounded-[28px] border border-border bg-card p-6 transition-colors hover:border-primary"
+                >
+                  <h3 className="font-display text-xl font-bold text-foreground">{r.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{r.copy}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-primary py-16 text-center text-white">
+        <h2 className="text-balance font-display text-3xl font-bold sm:text-4xl">Still have a question?</h2>
+        <p className="mx-auto mt-4 max-w-md text-white/75">Call or WhatsApp. We are happy to talk it through.</p>
+        <a
+          href={`tel:${PHONE_TEL}`}
+          className="mt-8 inline-flex h-14 items-center rounded-full bg-white px-8 font-semibold text-primary transition-transform hover:scale-[1.02]"
+        >
+          Call {PHONE_DISPLAY}
+        </a>
+      </section>
     </>
   )
 }
