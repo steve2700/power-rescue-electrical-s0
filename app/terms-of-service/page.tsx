@@ -1,281 +1,276 @@
-// File path: app/terms-of-service/page.tsx
-// Clean URL: https://www.boreholeworks.co.za/terms-of-service
-
 import type { Metadata } from "next"
-import type { ReactNode } from "react"
-import { EMAIL, PHONE_DISPLAY, PHONE_TEL } from "@/components/contact-info"
+import {
+  Bullets,
+  EmailLink,
+  LegalBody,
+  LegalClosing,
+  LegalHero,
+  PhoneLink,
+  Section,
+  Strong,
+} from "@/components/legal-ui"
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Borehole Works",
+  title: "Terms of Service",
   description:
-    "Terms of Service for Borehole Works. Read the terms governing our website, quotations, and our borehole, pump, tank, irrigation and plumbing services in Gauteng.",
-  alternates: {
-    canonical: "https://www.boreholeworks.co.za/terms-of-service",
-  },
-  robots: "index, follow",
+    "Terms of Service for Power Rescue Electrical. The terms that govern our website, quotations and electrical services in Gauteng, including repairs, installations, solar, fences, CCTV and gates.",
+  alternates: { canonical: "/terms-of-service" },
+  robots: { index: true, follow: true },
 }
 
-const EFFECTIVE_DATE = "September 28, 2026"
-
-function Section({ number, title, children }: { number: number; title: string; children: ReactNode }) {
-  return (
-    <section className="border-t border-border py-10 first:border-t-0 first:pt-0">
-      <h2 className="flex items-baseline gap-4 text-2xl font-bold tracking-tight">
-        <span className="text-sm font-bold text-accent">{String(number).padStart(2, "0")}</span>
-        {title}
-      </h2>
-      <div className="mt-5 space-y-4 leading-relaxed text-muted-foreground">{children}</div>
-    </section>
-  )
-}
-
-function Bullets({ items }: { items: ReactNode[] }) {
-  return (
-    <ul className="list-disc space-y-2 pl-6">
-      {items.map((item, i) => (
-        <li key={i}>{item}</li>
-      ))}
-    </ul>
-  )
-}
+const EFFECTIVE_DATE = "9 October 2026"
 
 export default function TermsOfServicePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="border-b border-border bg-muted py-14 lg:py-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Legal</p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Terms of Service</h1>
-            <p className="mt-4 text-muted-foreground">Borehole Works · Effective {EFFECTIVE_DATE}</p>
-          </div>
-        </div>
-      </section>
+      <LegalHero title="Terms of Service" meta={`Power Rescue Electrical · Effective ${EFFECTIVE_DATE}`} />
 
-      {/* CONTENT */}
-      <div className="container mx-auto px-4 py-14 lg:px-8 lg:py-20">
-        <div className="mx-auto max-w-3xl">
-          <Section number={1} title="Introduction and acceptance">
-            <p>
-              These Terms of Service ("Terms") govern your use of the website https://www.boreholeworks.co.za and any
-              quotation, project or service you engage Borehole Works ("we", "us", "our") to carry out. By using our
-              website or engaging our services, you agree to be bound by these Terms. If you do not agree, please do not
-              use our website or services.
-            </p>
-            <p>
-              For project-specific work, these Terms apply alongside any separate written quotation, contract or scope
-              of work between you and Borehole Works. Where a signed contract and these Terms conflict, the signed
-              contract takes precedence.
-            </p>
-          </Section>
-
-          <Section number={2} title="Our services">
-            <p>
-              Borehole Works provides borehole drilling, pump installation and repairs, solar borehole pumps,
-              irrigation systems, water tank installation, plumbing, geyser installation and repairs, blocked drain
-              unblocking and emergency plumbing for residential, commercial and agricultural clients across Gauteng,
-              South Africa. The scope of any job is set out in the written quotation provided before work begins.
-            </p>
-            <p>
-              We may decline or stop any service request where a site is unsafe, a request falls outside our
-              expertise, or payment terms are not met.
-            </p>
-          </Section>
-
-          <Section number={3} title="Quotations and estimates">
-            <Bullets
-              items={[
-                <>
-                  <strong className="text-foreground">Free assessments and quotations.</strong> Initial site
-                  assessments and quotations are free, following a site visit or consultation.
-                </>,
-                <>
-                  <strong className="text-foreground">Phone estimates.</strong> Where possible we give an estimate over
-                  the phone before we drive out. An itemised quotation follows once we have seen the job.
-                </>,
-                <>
-                  <strong className="text-foreground">Validity.</strong> Quotations are valid for 30 days from the
-                  date issued unless stated otherwise.
-                </>,
-                <>
-                  <strong className="text-foreground">Scope.</strong> A quotation reflects the scope known at the time.
-                  Unforeseen site conditions, such as ground conditions or hidden pipework, may require a revised
-                  quotation before work continues.
-                </>,
-                <>
-                  <strong className="text-foreground">Written approval.</strong> Work begins only once you approve the
-                  quotation in writing, including by email or WhatsApp confirmation.
-                </>,
-              ]}
-            />
-          </Section>
-
-          <Section number={4} title="Payment terms">
-            <Bullets
-              items={[
-                "A deposit may be required before work starts, as specified in your quotation.",
-                "Progress payments may apply for larger projects, invoiced at agreed milestones.",
-                "Final payment is due on completion, unless otherwise agreed in writing.",
-                "Callout fees, where applicable, are confirmed on the phone before we come out.",
-                "Late payments may incur interest and may pause further work until resolved.",
-                "We accept EFT and other payment methods as confirmed at the time of quoting.",
-              ]}
-            />
-            <p className="text-sm italic">
-              Specific payment schedules, deposit amounts and milestones for your job are set out in your individual
-              quotation or contract.
-            </p>
-          </Section>
-
-          <Section number={5} title="Borehole drilling and water yield">
-            <p>
-              Groundwater is variable. A site assessment gives you an honest view of your chances of finding water and
-              roughly what yield to expect, but it is an assessment, not a guarantee.
-            </p>
-            <Bullets
-              items={[
-                "We cannot guarantee that water will be found, or the depth, quality or sustained yield of any borehole.",
-                "Drilling work carried out as quoted is payable even if the borehole is dry or yields less than hoped, unless your written quotation states otherwise.",
-                "Yield tests show what a borehole can deliver at the time of testing. Yields can change with season, rainfall and other water users nearby.",
-                "Water quality is not tested unless your quotation says so. If the water will be used for drinking, we recommend a laboratory test.",
-                "You are responsible for obtaining any municipal or water-use approvals needed to drill or use groundwater on your property, unless we agree otherwise in writing.",
-              ]}
-            />
-          </Section>
-
-          <Section number={6} title="Changes, variations and cancellations">
-            <p>
-              <strong className="text-foreground">Changes to scope.</strong> Any change to the agreed scope of work must
-              be confirmed in writing and may result in a revised quotation and adjusted timeline.
-            </p>
-            <p>
-              <strong className="text-foreground">Cancellations.</strong> You may cancel a job before work begins.
-              Deposits already paid may be non-refundable where materials have been ordered or labour scheduled on your
-              behalf. Cancelling once work has started may require payment for work completed and materials committed.
-            </p>
-          </Section>
-
-          <Section number={7} title="Warranties and guarantees">
-            <p>
-              We stand behind the quality of our workmanship. Warranty terms, including duration and coverage, depend on
-              the type of work and will be detailed in your job documentation. Warranties generally do not cover:
-            </p>
-            <Bullets
-              items={[
-                "Damage caused by misuse, neglect or lack of maintenance",
-                "Normal wear and tear",
-                "Work or alterations carried out by others after we finish",
-                "Pre-existing defects not identified as part of the original scope",
-                "Changes in borehole yield or water quality caused by natural conditions",
-              ]}
-            />
-            <p>
-              Manufacturer warranties on pumps, tanks, geysers and fittings are passed through to you as provided by
-              the manufacturer or supplier.
-            </p>
-          </Section>
-
-          <Section number={8} title="Client responsibilities">
-            <p>To help us deliver your job safely and on schedule, you agree to:</p>
-            <Bullets
-              items={[
-                "Provide safe and reasonable site access",
-                "Tell us about known hazards, including underground pipes, cables and boundaries, before we drill or dig",
-                "Obtain any body corporate, landlord or authority approvals required",
-                "Respond promptly to requests for decisions or approvals",
-                "Make water and electricity available where needed",
-                "Settle invoices according to the agreed payment terms",
-              ]}
-            />
-          </Section>
-
-          <Section number={9} title="Limitation of liability">
-            <p>
-              While we take reasonable care in all work performed, Borehole Works' liability for any claim arising from
-              our services is limited to the value of the relevant job, except where liability cannot be excluded or
-              limited under South African law, including gross negligence or wilful misconduct.
-            </p>
-            <p>
-              We are not liable for delays or failures caused by circumstances beyond our reasonable control, including
-              extreme weather, load shedding, supplier delays or municipal service interruptions.
-            </p>
-          </Section>
-
-          <Section number={10} title="Insurance">
-            <p>
-              We maintain insurance cover appropriate to the work we perform. Details can be provided on request. We
-              recommend that you maintain your own homeowner's or business insurance covering the property while work
-              is carried out.
-            </p>
-          </Section>
-
-          <Section number={11} title="Website use and intellectual property">
-            <p>
-              All content on this website, including text, photographs, logos and design, belongs to Borehole Works or
-              its licensors and may not be copied, reproduced or used without our prior written consent.
-            </p>
-            <p>
-              You agree not to use this website for any unlawful purpose or in a way that could damage, disable or
-              impair it.
-            </p>
-          </Section>
-
-          <Section number={12} title="Dispute resolution">
-            <p>
-              If a dispute arises about our services, please contact us directly so we can resolve it promptly. If it
-              cannot be resolved informally, the dispute will be handled in accordance with South African law and,
-              where applicable, referred to mediation or arbitration before formal legal proceedings.
-            </p>
-          </Section>
-
-          <Section number={13} title="Governing law">
-            <p>
-              These Terms are governed by the laws of the Republic of South Africa. Any dispute not resolved through
-              mediation is subject to the jurisdiction of the South African courts.
-            </p>
-          </Section>
-
-          <Section number={14} title="Changes to these Terms">
-            <p>
-              We may update these Terms from time to time to reflect changes in our services or legal requirements.
-              Updates are posted on this page with a revised effective date. Continued use of our website or services
-              after changes are posted means you accept the updated Terms.
-            </p>
-            <p>
-              For active jobs, the Terms in effect when your quotation was accepted continue to apply to that job.
-            </p>
-          </Section>
-
-          <Section number={15} title="Contact us">
-            <p>Questions about these Terms can be sent to:</p>
-            <ul className="space-y-1">
-              <li>
-                Email: <a href={`mailto:${EMAIL}`} className="font-semibold text-accent hover:underline">{EMAIL}</a>
-              </li>
-              <li>
-                Phone: <a href={`tel:${PHONE_TEL}`} className="font-semibold text-accent hover:underline">{PHONE_DISPLAY}</a>
-              </li>
-              <li>Location: Gauteng, South Africa</li>
-            </ul>
-            <p className="text-sm">Last updated and effective: {EFFECTIVE_DATE}</p>
-          </Section>
-        </div>
-      </div>
-
-      {/* CLOSING */}
-      <section className="bg-primary py-14 text-primary-foreground">
-        <div className="container mx-auto px-4 text-center lg:px-8">
-          <h2 className="text-3xl font-bold">Questions about our terms?</h2>
-          <p className="mx-auto mt-3 max-w-xl text-primary-foreground/80">
-            We're happy to talk through anything here before you commit to a job.
+      <LegalBody>
+        <Section number={1} title="Introduction and acceptance">
+          <p>
+            These Terms of Service (&quot;Terms&quot;) govern your use of the website https://www.powerrescue.co.za and any
+            quotation, project or service you engage Power Rescue Electrical (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) to carry out.
+            By using our website or engaging our services, you agree to be bound by these Terms. If you do not agree,
+            please do not use our website or services.
           </p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <a href={`tel:${PHONE_TEL}`} className="inline-flex h-12 items-center justify-center rounded-xl bg-accent px-6 text-sm font-semibold text-accent-foreground hover:bg-accent/90">Call {PHONE_DISPLAY}</a>
-            <a href={`mailto:${EMAIL}`} className="inline-flex h-12 items-center justify-center rounded-xl border border-white/40 px-6 text-sm font-semibold text-white hover:bg-white/10">Email us</a>
-          </div>
-        </div>
-      </section>
+          <p>
+            For project-specific work, these Terms apply alongside any separate written quotation, contract or scope of
+            work between you and Power Rescue Electrical. Where a signed contract and these Terms conflict, the signed
+            contract takes precedence.
+          </p>
+        </Section>
+
+        <Section number={2} title="Our services">
+          <p>
+            Power Rescue Electrical provides emergency electrical repairs, installations and wiring, maintenance and
+            fault finding, Certificates of Compliance, DB board upgrades, lighting and plug points, solar and inverter
+            backup systems, solar geyser installation and repairs, electric fence installation and repairs, CCTV
+            installation and repairs, and security gate motor and automation installation and repairs, for residential
+            and commercial clients across Gauteng, South Africa. The scope of any job is set out in the quotation or
+            agreement made before work begins.
+          </p>
+          <p>
+            We may decline or stop any service request where a site is unsafe, a request falls outside our expertise,
+            or payment terms are not met.
+          </p>
+        </Section>
+
+        <Section number={3} title="Quotations and estimates">
+          <Bullets
+            items={[
+              <>
+                <Strong>Phone and WhatsApp estimates.</Strong> Where possible we give an estimate over the phone or on
+                WhatsApp. An itemised quotation follows once we have seen the job.
+              </>,
+              <>
+                <Strong>Validity.</Strong> Quotations are valid for 30 days from the date issued unless stated
+                otherwise.
+              </>,
+              <>
+                <Strong>Scope.</Strong> A quotation reflects the scope known at the time. Hidden faults, concealed
+                wiring or unforeseen site conditions may require a revised quotation before work continues.
+              </>,
+              <>
+                <Strong>Approval.</Strong> Work begins only once you approve the quotation, including by email or
+                WhatsApp confirmation. In a genuine emergency, you may approve urgent work verbally, and we will
+                confirm what was agreed in writing afterwards.
+              </>,
+            ]}
+          />
+        </Section>
+
+        <Section number={4} title="Payment terms">
+          <Bullets
+            items={[
+              "A deposit may be required before work starts on larger jobs, for example to order materials, as specified in your quotation.",
+              "Progress payments may apply for larger projects, invoiced at agreed milestones.",
+              "Final payment is due on completion, unless otherwise agreed in writing.",
+              "Any call-out or after-hours charges are confirmed with you before we come out.",
+              "Late payments may incur interest and may pause further work until resolved.",
+              "We accept EFT and other payment methods as confirmed at the time of quoting.",
+            ]}
+          />
+          <p className="text-sm italic">
+            Specific payment schedules, deposit amounts and milestones for your job are set out in your individual
+            quotation or agreement.
+          </p>
+        </Section>
+
+        <Section number={5} title="Emergency call-outs">
+          <p>
+            Our emergency line is open day and night. Arrival times we give you are estimates, and depend on your
+            location, traffic, weather and the availability of the nearest electrician.
+          </p>
+          <Bullets
+            items={[
+              "Our first priority is to make the fault safe. This can mean isolating a circuit or switching off part of your installation.",
+              "If an installation is unsafe, we may decline to restore power until the necessary repairs have been done.",
+              "Temporary repairs made to restore power in an emergency are explained to you, and a permanent repair can be quoted separately.",
+            ]}
+          />
+        </Section>
+
+        <Section number={6} title="Electrical safety and Certificates of Compliance">
+          <p>
+            Where the law requires a Certificate of Compliance (COC) for work we carry out, we will issue one once the
+            work has been completed and has passed testing. We cannot issue a certificate for an installation that does
+            not meet the required standard until the faults have been repaired.
+          </p>
+          <p>
+            An inspection or certificate reflects the condition of the installation on the day it was inspected. It is
+            not a guarantee that no fault will develop later.
+          </p>
+          <p>
+            You agree to follow our safety advice, including not using equipment or circuits we have told you are
+            unsafe.
+          </p>
+        </Section>
+
+        <Section number={7} title="Solar, backup power and savings">
+          <p>
+            Solar, inverter, battery and solar geyser systems are designed around the information you give us about your
+            usage and goals. Any figures we discuss for savings, output or backup time are estimates, not guarantees.
+          </p>
+          <Bullets
+            items={[
+              "Solar output depends on sunlight, weather, roof orientation, shading and the condition of the system.",
+              "How long a battery system lasts during an outage depends on the battery size, its charge and what you run on it.",
+              "Savings on your electricity bill depend on your usage and on tariffs, which we do not control.",
+              "You are responsible for obtaining any body corporate, landlord or municipal approvals needed for a system on your property, unless we agree in writing that we will handle them.",
+            ]}
+          />
+        </Section>
+
+        <Section number={8} title="Repairs on existing systems">
+          <p>
+            Much of our repair work, including on electric fences, CCTV systems, gate motors and solar geysers, is on
+            systems that someone else installed. In that case:
+          </p>
+          <Bullets
+            items={[
+              "We diagnose the fault and tell you whether it is a repair or a replacement.",
+              "We are responsible for the repair we carry out and the parts we supply, but not for the rest of a system we did not install, or for faults already present that were not part of the repair.",
+              "Equipment that is old, discontinued or damaged may not be repairable. We will tell you before you commit to cost.",
+              "If we find further faults while working, we will tell you and quote separately.",
+            ]}
+          />
+        </Section>
+
+        <Section number={9} title="Changes, variations and cancellations">
+          <p>
+            <Strong>Changes to scope.</Strong> Any change to the agreed scope of work must be confirmed in writing and
+            may result in a revised quotation and adjusted timeline.
+          </p>
+          <p>
+            <Strong>Cancellations.</Strong> You may cancel a job before work begins. Deposits already paid may be
+            non-refundable where materials have been ordered or labour scheduled on your behalf. Cancelling once work
+            has started may require payment for work completed and materials committed.
+          </p>
+        </Section>
+
+        <Section number={10} title="Warranties and guarantees">
+          <p>
+            We stand behind the quality of our workmanship. Warranty terms, including duration and coverage, depend on
+            the type of work and will be detailed in your job documentation. Warranties generally do not cover:
+          </p>
+          <Bullets
+            items={[
+              "Damage caused by misuse, neglect or lack of maintenance",
+              "Normal wear and tear, including ageing of batteries, fence wires and gate parts",
+              "Damage from lightning, power surges, floods or theft",
+              "Work or alterations carried out by others after we finish",
+              "Pre-existing defects not identified as part of the original scope",
+            ]}
+          />
+          <p>
+            Manufacturer warranties on inverters, batteries, panels, geysers, energisers, cameras, gate motors and
+            fittings are passed through to you as provided by the manufacturer or supplier.
+          </p>
+        </Section>
+
+        <Section number={11} title="Client responsibilities">
+          <p>To help us deliver your job safely and on schedule, you agree to:</p>
+          <Bullets
+            items={[
+              "Provide safe and reasonable site access, including access to your DB board and relevant equipment",
+              "Tell us about known hazards, such as damaged wiring, asbestos, hidden cables or pipes and animals on site",
+              "Obtain any body corporate, landlord or authority approvals required",
+              "Respond promptly to requests for decisions or approvals",
+              "Make sure that someone over 18 is present, or that we have your permission to work unattended",
+              "Settle invoices according to the agreed payment terms",
+            ]}
+          />
+        </Section>
+
+        <Section number={12} title="Limitation of liability">
+          <p>
+            While we take reasonable care in all work performed, Power Rescue Electrical&apos;s liability for any claim
+            arising from our services is limited to the value of the relevant job, except where liability cannot be
+            excluded or limited under South African law, including gross negligence or wilful misconduct.
+          </p>
+          <p>
+            We are not liable for indirect or consequential losses, such as loss of income, spoiled goods or loss of
+            data, or for delays or failures caused by circumstances beyond our reasonable control, including extreme
+            weather, load shedding, supplier delays or municipal service interruptions.
+          </p>
+          <p>
+            Nothing in these Terms limits any rights you have under the Consumer Protection Act, 2008, or any other law
+            that cannot be limited by agreement.
+          </p>
+        </Section>
+
+        <Section number={13} title="Website use and intellectual property">
+          <p>
+            All content on this website, including text, photographs, logos and design, belongs to Power Rescue
+            Electrical or its licensors and may not be copied, reproduced or used without our prior written consent.
+          </p>
+          <p>
+            Information on this website is general. It is not a quote and does not replace advice from an electrician
+            who has seen your installation. You agree not to use this website for any unlawful purpose or in a way that
+            could damage, disable or impair it.
+          </p>
+        </Section>
+
+        <Section number={14} title="Disputes and governing law">
+          <p>
+            If a dispute arises about our services, please contact us directly so we can resolve it promptly. If it
+            cannot be resolved informally, the dispute will be handled in accordance with South African law and, where
+            applicable, referred to mediation or arbitration before formal legal proceedings.
+          </p>
+          <p>
+            These Terms are governed by the laws of the Republic of South Africa. Any dispute not resolved through
+            mediation is subject to the jurisdiction of the South African courts.
+          </p>
+        </Section>
+
+        <Section number={15} title="Changes to these Terms">
+          <p>
+            We may update these Terms from time to time to reflect changes in our services or legal requirements.
+            Updates are posted on this page with a revised effective date. Continued use of our website or services
+            after changes are posted means you accept the updated Terms.
+          </p>
+          <p>For active jobs, the Terms in effect when your quotation was accepted continue to apply to that job.</p>
+        </Section>
+
+        <Section number={16} title="Contact us">
+          <p>Questions about these Terms can be sent to:</p>
+          <ul className="space-y-1">
+            <li>
+              Email: <EmailLink />
+            </li>
+            <li>
+              Phone: <PhoneLink />
+            </li>
+            <li>Location: Gauteng, South Africa</li>
+          </ul>
+          <p className="text-sm">Last updated and effective: {EFFECTIVE_DATE}</p>
+        </Section>
+      </LegalBody>
+
+      <LegalClosing
+        heading="Questions about our terms?"
+        copy="We are happy to talk through anything here before you commit to a job."
+      />
     </>
   )
 }
