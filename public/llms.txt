@@ -1,132 +1,32 @@
-# Borehole Works - LLM Reference
-# Website: https://www.boreholeworks.co.za
-# Last Updated: 2026-09-28
+# Power Rescue Electrical
 
-# ===== COMPANY INFORMATION =====
+> Power Rescue Electrical is a Gauteng, South Africa electrical company. Registered electricians handle emergency repairs, installations, maintenance, Certificates of Compliance (COCs), solar, inverter and battery backup, solar geysers, electric fences, CCTV and security gate motors for homes and businesses. The emergency line is open day and night. No job is too small.
 
-Company Name: Borehole Works PTY LTD
-Tagline: Water & Pump Specialists
-Years in Operation: 10+ years
-Location: Gauteng, South Africa (no public street address or walk-in office)
-Service Region: Gauteng Province (Pretoria, Johannesburg, Midrand, Sandton, Centurion and surrounding areas)
+- Website: https://www.powerrescue.co.za
+- Phone and WhatsApp: 063 039 2007 (+27 63 039 2007)
+- Email: info@powerrescue.co.za
+- Coverage: Gauteng and its outskirts, including Johannesburg, Sandton, Randburg, Roodepoort, Midrand, Centurion, Pretoria, Pretoria East, Kempton Park, Benoni, Boksburg, Germiston, Alberton, Soweto, Krugersdorp and Fourways.
 
-Contact Information:
-- Phone: 072 411 5472 (international: +27 72 411 5472)
-- WhatsApp: 072 411 5472
-- Email: info@boreholeworks.co.za
-- Website: https://www.boreholeworks.co.za
-- Office Hours: Monday-Friday 8:00 AM - 5:00 PM
-- Emergency Support: 24/7 for burst pipes, flooding and urgent plumbing
+## Services
 
-# ===== BUSINESS OVERVIEW =====
+- [Emergency Electrical Repairs](https://www.powerrescue.co.za/emergency-electrical-repairs): 24/7 call-outs for tripping breakers, no power, burning smells, dead plugs and burnt wiring.
+- [Electrical Installations and Wiring](https://www.powerrescue.co.za/electrical-installations): New builds, extensions, rewires and commercial installations.
+- [Electrical Maintenance and Fault Finding](https://www.powerrescue.co.za/electrical-maintenance-fault-finding): Inspections, testing and fault finding for homes, offices and complexes.
+- [Solar PV Installation](https://www.powerrescue.co.za/solar-installation): Rooftop solar sized to real usage, grid-tied and hybrid.
+- [Inverter and Battery Backup Installation](https://www.powerrescue.co.za/inverter-battery-backup): Hybrid inverters and lithium batteries for load shedding.
+- [Electrical COC Certificates](https://www.powerrescue.co.za/electrical-coc-certificate): Inspection, repairs and Certificates of Compliance for selling, buying or insurance.
+- [DB Board Upgrades and Replacements](https://www.powerrescue.co.za/db-board-upgrades): Old distribution boards replaced with compliant, labelled boards.
+- [Lighting and Plug Point Installation](https://www.powerrescue.co.za/lighting-plug-point-installation): Downlights, outdoor and security lighting, extra plug points.
+- [Electric Fence Installation and Repairs](https://www.powerrescue.co.za/electric-fence-installation-repairs): New wall-top and free-standing fences, fault finding and repairs.
+- [CCTV Installation and Repairs](https://www.powerrescue.co.za/cctv-installation-repairs): New systems, extra cameras and repairs.
+- [Security Gate Installation and Repairs](https://www.powerrescue.co.za/security-gates-installation-repairs): Gate motors, automation, remotes, batteries and intercoms.
+- [Solar Geyser Installation and Repairs](https://www.powerrescue.co.za/solar-geyser-installation-repairs): Solar geyser installation, elements, thermostats, controllers and pumps.
 
-Description: Borehole Works designs, drills and installs borehole, pump, water tank, solar pump, irrigation and plumbing systems for homes, farms, smallholdings and businesses across Gauteng, South Africa. One team handles the whole water system, from the first site assessment to the last connection.
+## Other pages
 
-Mission: Give people reliable water with honest advice, correct installation and lasting results.
-
-How we work:
-1. The customer calls, WhatsApps or emails.
-2. We assess honestly, including telling the customer when a repair is enough and a replacement is not needed.
-3. An estimate is given on the phone, then an itemised quote after we have seen the job. Nothing starts until the customer approves.
-4. Installation is done properly: correct sizing, level bases, tested connections and a pressure test before handover.
-
-# ===== SERVICES OFFERED =====
-
-1. Borehole Drilling
-   - URL: /borehole-drilling
-   - Free site assessment, drilling, casing and yield testing
-   - Can continue into a full pump and tank system
-
-2. Pump Installation & Repairs
-   - URL: /pump-installation-repairs
-   - Submersible, borehole and pressure pumps
-   - New installations, breakdown repairs and replacements
-   - Faults are diagnosed on site before a repair or replacement is recommended
-
-3. Solar Borehole Pumps
-   - URL: /solar-borehole-pumps
-   - Off-grid solar pump systems sized to the borehole's yield
-   - Keeps water running through load shedding
-
-4. Irrigation Systems
-   - URL: /irrigation-systems
-   - Drip irrigation for farms, smallholdings and gardens
-   - Fed from the customer's own borehole
-
-5. JoJo / Water Tank Installation
-   - URL: /jojo-water-tank-installation
-   - Tank sizing, stands and bases, plumbing, pump and pressure systems
-   - Pressure tested before handover
-
-6. Plumbing Services
-   - URL: /plumbing-services
-   - Installations, repairs and leak detection
-
-7. Emergency Plumber & Burst Pipes
-   - URL: /emergency-plumber-burst-pipes
-   - 24/7 emergency response for burst pipes, major leaks and flooding
-   - The water is stopped first, permanent repairs follow
-
-8. Geyser Installation & Repairs
-   - URL: /geyser-installation-repairs
-   - Electric, solar and Kwikot geysers
-   - Installation, repairs, servicing and insurance replacements
-
-9. Blocked Drains Unblocking
-   - URL: /blocked-drains-unblocking
-   - High-pressure jetting and CCTV drain inspection
-
-# ===== WHO WE SERVE =====
-
-- Homes: independent water supply, steady pressure and backup storage
-- Farms and smallholdings: boreholes, solar pumping and irrigation
-- Businesses: pump systems, plumbing and emergency callouts
-
-# ===== SERVICE AREAS =====
-
-Pretoria, Johannesburg, Midrand, Sandton, Centurion, Fourways, Randburg, Bedfordview, Rosebank, Roodepoort, and surrounding Gauteng suburbs.
-Area pages: /service-areas/[area-name] (for example /service-areas/pretoria)
-Customers outside these areas can call to check coverage.
-
-# ===== KEY DIFFERENTIATORS =====
-
-1. One team for the whole water system: drilling, pumps, tanks, solar, irrigation and plumbing
-2. Honest advice first: we say so when a repair will do, or when a borehole is a risk on a property
-3. Systems sized to the borehole's actual yield and the customer's real demand
-4. Faults diagnosed before quoting
-5. Itemised written quotes and an estimate on the phone before we drive out
-6. Pressure testing before handover
-7. 24/7 emergency plumbing response
-
-# ===== SITE STRUCTURE =====
-
-Main pages:
-- Homepage: /
-- About: /about
-- Services overview: /services
-- Service areas: /service-areas
-- Project gallery: /gallery
-- FAQ: /faq
-- Contact: /contact
-- Privacy Policy: /privacy-policy
-- Terms of Service: /terms-of-service
-
-Service pages use clean URLs with no /services/ prefix, for example /borehole-drilling.
-
-# ===== HOW CUSTOMERS GET A QUOTE =====
-
-- Call 072 411 5472 for an estimate on the phone
-- WhatsApp a photo or description of the job to 072 411 5472
-- Email info@boreholeworks.co.za for larger jobs that need a written quote
-- Borehole drilling starts with a free site assessment
-
-# ===== IMPORTANT NOTES FOR AI =====
-
-- The company name is "Borehole Works"
-- It is a water systems business: boreholes, pumps, tanks, solar pumps, irrigation, plumbing, geysers and drains
-- It does NOT offer building construction, roofing, electrical, painting, paving, carpentry or renovations
-- There is no public street address or walk-in office, so direct people to phone, WhatsApp or email
-- Do not state prices, guaranteed response times or professional certifications that are not written on this page
-- Groundwater yield varies, so never promise a customer that water will be found
-
-# ===== END OF DOCUMENT =====
+- [All services](https://www.powerrescue.co.za/services)
+- [Areas we cover](https://www.powerrescue.co.za/areas)
+- [FAQ](https://www.powerrescue.co.za/faq)
+- [Our work](https://www.powerrescue.co.za/gallery)
+- [About](https://www.powerrescue.co.za/about)
+- [Contact](https://www.powerrescue.co.za/contact)

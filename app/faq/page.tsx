@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_NUMBER } from "@/components/contact-info"
 
@@ -97,19 +98,73 @@ const generalFaqs: Faq[] = [
   },
 ]
 
+const securityFaqs: Faq[] = [
+  {
+    q: "Do you repair electric fences, gates and CCTV?",
+    a: "Yes. Repairs on all three are among our most common jobs, and no job is too small, from a single broken fence wire to a gate remote or one dead camera.",
+  },
+  {
+    q: "Why does my gate stop working during load shedding?",
+    a: "Gate motors run from a battery when the power is off. If the battery is tired, the gate stops. We test and replace gate batteries and chargers.",
+  },
+  {
+    q: "Will my electric fence work during load shedding?",
+    a: "Fence energisers normally run from a battery during outages. If your fence goes dead when the power does, the battery or charger is usually the first thing we check.",
+  },
+  {
+    q: "Can I watch my CCTV cameras on my phone?",
+    a: "Yes. We set up remote viewing so you can check your cameras from your phone, and we can fix it if it has stopped working.",
+  },
+  {
+    q: "My solar geyser gives no hot water. What should I do?",
+    a: "Check that the geyser breaker has not tripped, then call us. Common causes are a failed element or thermostat, or a controller or pump fault on a solar system.",
+  },
+]
+
 const SECTIONS = [
-  { id: "emergencies", title: "Emergencies and faults", items: emergencyFaqs },
-  { id: "installations", title: "Installations, COCs and DB boards", items: installFaqs },
-  { id: "solar", title: "Solar and backup power", items: solarFaqs },
-  { id: "general", title: "General", items: generalFaqs },
+  {
+    id: "emergencies",
+    title: "Emergencies and faults",
+    items: emergencyFaqs,
+    image: "/pr/job-emergency.png",
+    alt: "Electrician attending an electrical emergency",
+  },
+  {
+    id: "installations",
+    title: "Installations, COCs and DB boards",
+    items: installFaqs,
+    image: "/pr/power-rescue-residential-distribution-board-installation.jpg",
+    alt: "Residential distribution board installation",
+  },
+  {
+    id: "solar",
+    title: "Solar and backup power",
+    items: solarFaqs,
+    image: "/pr/power-rescue-residential-home-solar-system-installation.jpg",
+    alt: "Home solar system installation",
+  },
+  {
+    id: "security",
+    title: "Gates, fences, CCTV and geysers",
+    items: securityFaqs,
+    image: "/pr/power-rescue-automatic-sliding-gate-motor-installation.jpg",
+    alt: "Automatic sliding gate motor installation",
+  },
+  {
+    id: "general",
+    title: "General",
+    items: generalFaqs,
+    image: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg",
+    alt: "Electrical inspection with a multimeter",
+  },
 ]
 
 const allFaqs = SECTIONS.flatMap((s) => s.items)
 
 const RELATED = [
-  { href: "/emergency-electrical-repairs", title: "Emergency electrical repairs", copy: "Tripping, burning smells, no power." },
-  { href: "/electrical-coc-certificate", title: "Electrical COC certificates", copy: "For selling your home or insurance." },
-  { href: "/inverter-battery-backup", title: "Inverter and battery backup", copy: "Keep the lights on through load shedding." },
+  { href: "/emergency-electrical-repairs", title: "Emergency electrical repairs", copy: "Tripping, burning smells, no power.", image: "/pr/job-emergency.png" },
+  { href: "/electrical-coc-certificate", title: "Electrical COC certificates", copy: "For selling your home or insurance.", image: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg" },
+  { href: "/inverter-battery-backup", title: "Inverter and battery backup", copy: "Keep the lights on through load shedding.", image: "/pr/inverter-install.png" },
 ]
 
 const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi Power Rescue, I have a question.")}`
@@ -133,8 +188,17 @@ export default function FaqPage() {
       />
 
       {/* Hero */}
-      <section className="bg-primary text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+      <section className="relative overflow-hidden bg-primary text-white">
+        <Image
+          src="/pr/hero-db-board.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="-scale-x-100 object-cover opacity-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/60" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
           <nav aria-label="Breadcrumb" className="text-sm text-white/60">
             <Link href="/" className="hover:text-white">
               Home
@@ -188,7 +252,17 @@ export default function FaqPage() {
       <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:py-12">
         {SECTIONS.map((section) => (
           <section key={section.id} id={section.id} className="scroll-mt-32 py-10">
-            <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">{section.title}</h2>
+            <div className="relative aspect-[21/9] overflow-hidden rounded-[28px]">
+              <Image
+                src={section.image}
+                alt={section.alt}
+                fill
+                sizes="(min-width: 768px) 768px, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" aria-hidden="true" />
+            </div>
+            <h2 className="mt-6 font-display text-3xl font-bold text-foreground sm:text-4xl">{section.title}</h2>
             <div className="mt-6 divide-y divide-border border-y border-border">
               {section.items.map((f) => (
                 <details key={f.q} className="group py-5">
@@ -216,10 +290,21 @@ export default function FaqPage() {
               <li key={r.href}>
                 <Link
                   href={r.href}
-                  className="block h-full rounded-[28px] border border-border bg-card p-6 transition-colors hover:border-primary"
+                  className="group block h-full overflow-hidden rounded-[28px] border border-border bg-card transition-colors hover:border-primary"
                 >
-                  <h3 className="font-display text-xl font-bold text-foreground">{r.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{r.copy}</p>
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={r.image}
+                      alt=""
+                      fill
+                      sizes="(min-width: 640px) 33vw, 100vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-display text-xl font-bold text-foreground">{r.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{r.copy}</p>
+                  </div>
                 </Link>
               </li>
             ))}

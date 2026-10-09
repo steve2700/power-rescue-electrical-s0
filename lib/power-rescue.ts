@@ -72,6 +72,38 @@ export const SERVICES: Service[] = [
     tag: "Small jobs welcome",
     image: "/pr/lighting-install.png",
   },
+  {
+    slug: "electric-fence-installation-repairs",
+    title: "Electric Fence Installation and Repairs",
+    short: "New fences and fast repairs",
+    copy: "Dead fence, broken wires or setting off the alarm? We find the fault and fix it, and we install new wall-top and free-standing fences. No repair is too small.",
+    tag: "Repairs welcome",
+    image: "/pr/power-rescue-boundary-wall-electric-security-fencing.jpg",
+  },
+  {
+    slug: "cctv-installation-repairs",
+    title: "CCTV Installation and Repairs",
+    short: "New systems, extra cameras, repairs",
+    copy: "New CCTV systems and extra cameras, plus quick repairs for cameras with no picture, no recording or no phone access. One camera or a full system.",
+    tag: "Homes and businesses",
+    image: "/pr/power-rescue-residential-cctv-camera-installation.jpg",
+  },
+  {
+    slug: "security-gates-installation-repairs",
+    title: "Security Gate Installation and Repairs",
+    short: "Gate motors, remotes and automation",
+    copy: "Gate motors, automation wiring, remotes, batteries and intercoms. Gate stuck or dead since the last power cut? We fix it, and we automate new gates.",
+    tag: "Repairs welcome",
+    image: "/pr/power-rescue-automatic-sliding-gate-motor-installation.jpg",
+  },
+  {
+    slug: "solar-geyser-installation-repairs",
+    title: "Solar Geyser Installation and Repairs",
+    short: "Hot water from the sun, and repairs",
+    copy: "Switch to a solar geyser or get your existing geyser working again. Elements, thermostats, controllers and pumps repaired, and new systems installed.",
+    tag: "Repairs welcome",
+    image: "/pr/power-rescue-residential-solar-geyser-tiled-roof.jpg",
+  },
 ]
 
 export const AREAS = [

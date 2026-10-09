@@ -1,316 +1,327 @@
-// File path: app/about/page.tsx
-// Clean URL: https://www.boreholeworks.co.za/about
-
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
-import { CallButton, WhatsAppCta, EmailCta, StickyCallBar, BigPhoneLink } from "@/components/service-cta"
-import { ImageMarquee } from "@/components/image-marquee"
-import { WatermarkedImage } from "@/components/watermarked-image"
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_NUMBER } from "@/components/contact-info"
+import { Tick } from "@/components/tick"
+import { AREAS, SERVICES } from "@/lib/power-rescue"
+
+const SITE = "https://www.powerrescue.co.za"
 
 export const metadata: Metadata = {
-  title: "About Borehole Works | Borehole & Water Systems Specialists in Gauteng",
+  title: "About Power Rescue Electrical | Registered Electricians in Gauteng",
   description:
-    "Borehole Works designs, drills and installs borehole, pump, tank, solar and irrigation systems across Pretoria, Johannesburg and Gauteng. Learn who we are and how we work.",
-  keywords:
-    "about Borehole Works, borehole company Gauteng, water systems specialists Pretoria, pump installers Johannesburg",
-  alternates: {
-    canonical: "https://www.boreholeworks.co.za/about",
-  },
+    "Power Rescue Electrical handles emergency repairs, installations, maintenance, COCs, solar and backup power for homes and businesses across Gauteng. Meet the team and see how we work.",
+  alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Borehole Works | Borehole & Water Systems Specialists",
-    description:
-      "Honest advice, correct installation and lasting results for borehole, pump, tank, solar and irrigation systems across Gauteng.",
-    images: [
-      {
-        url: "/pump_systems_boreholes.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Borehole Works pump system installation in Gauteng",
-      },
-    ],
+    url: "/about",
+    title: "About Power Rescue Electrical",
+    description: "Registered electricians. Honest advice, safe work and clear quotes across Gauteng.",
+    images: ["/pr/hero-db-board.png"],
   },
 }
 
-const stats = [
-  { value: "10+", label: "Years experience" },
-  { value: "9", label: "Water services" },
-  { value: "24/7", label: "Emergency callouts" },
+const STEPS = [
+  { title: "You call or WhatsApp", copy: "Tell us what is happening, with a photo if you can. You reach us directly." },
+  { title: "We make it safe", copy: "We isolate the fault and test to find the real cause, not just the symptom." },
+  { title: "You get a clear quote", copy: "You hear what we found and what it will take, before any work starts." },
+  { title: "We fix, test and certify", copy: "The work is tested, and a COC is issued where it is required." },
 ]
 
-const marqueeImages = [
-  { src: "/borehole_drilling_water_gushing.jpg", alt: "Borehole drilling striking water" },
-  { src: "/pump_installation_hero.jpg", alt: "Pump installation" },
-  { src: "/solar_borehole_pump_aerial_view.jpg", alt: "Solar borehole pump aerial view" },
-  { src: "/eco_water_tanks_installation.jpg", alt: "Eco water tanks installation" },
-  { src: "/kwikot_geyser_installation.jpg", alt: "Kwikot geyser installation" },
-  { src: "/pump_systems_boreholes.jpg", alt: "Borehole pump system" },
+const VALUES = [
+  { title: "Safety before speed", copy: "We make the fault safe first, then fix it properly. Quick patches that hide a problem help nobody." },
+  { title: "Honest advice", copy: "If a repair will do, we say so. If a board or wiring really needs replacing, we explain why." },
+  { title: "Clear quoting", copy: "A straightforward quote once we have seen the job, so there are no surprises on the invoice." },
+  { title: "Registered and certified", copy: "Registered electricians, with Certificates of Compliance issued where the work requires one." },
 ]
 
-const services = [
-  { title: "Borehole drilling", href: "/borehole-drilling", copy: "Site assessment, drilling and yield testing." },
-  { title: "Pump installation & repairs", href: "/pump-installation-repairs", copy: "Submersible, borehole and pressure pumps." },
-  { title: "Solar borehole pumps", href: "/solar-borehole-pumps", copy: "Off-grid water that ignores load shedding." },
-  { title: "Irrigation systems", href: "/irrigation-systems", copy: "Drip irrigation for farms, plots and gardens." },
-  { title: "Water tank installation", href: "/jojo-water-tank-installation", copy: "Stands, plumbing, pumps and pressure." },
-  { title: "Plumbing services", href: "/plumbing-services", copy: "Installations, repairs and leak detection." },
-  { title: "Emergency plumber", href: "/emergency-plumber-burst-pipes", copy: "24/7 response for burst pipes and floods." },
-  { title: "Geyser installation", href: "/geyser-installation-repairs", copy: "Electric, solar and Kwikot geysers." },
-  { title: "Blocked drains", href: "/blocked-drains-unblocking", copy: "Jetting and CCTV inspection." },
+const ROLES = [
+  "Registered electricians",
+  "Emergency call-out teams",
+  "Fault finding and testing",
+  "Solar and backup installers",
+  "Quoting and coordination",
 ]
 
-const steps = [
-  {
-    title: "You call or WhatsApp us",
-    copy: "Tell us what's happening. You'll speak to someone who knows water systems, not a call centre.",
-  },
-  {
-    title: "We assess honestly",
-    copy: "We look at your property, borehole or system and tell you what it needs, including when the answer is a repair, not a replacement.",
-  },
-  {
-    title: "You get a clear quote",
-    copy: "An estimate on the phone and an itemised quote after we've seen the job. Nothing starts until you approve it.",
-  },
-  {
-    title: "We install it properly",
-    copy: "Correct sizing, proper bases and pipework, and a pressure test before we hand over.",
-  },
+const MOSAIC = [
+  { src: "/pr/power-rescue-residential-distribution-board-installation.jpg", alt: "Residential distribution board installation" },
+  { src: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg", alt: "Electrical inspection with a multimeter" },
+  { src: "/pr/power-rescue-residential-home-solar-system-installation.jpg", alt: "Home solar installation" },
+  { src: "/pr/inverter-install.png", alt: "Hybrid inverter and battery installation" },
 ]
 
-const values = [
+const jsonLd = [
   {
-    title: "Honest advice first",
-    description:
-      "If a repair will do, we say so. If a borehole is a gamble on your property, we say that too, before you spend anything.",
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About Power Rescue Electrical",
+    url: `${SITE}/about`,
+    mainEntity: {
+      "@type": "Electrician",
+      name: "Power Rescue Electrical",
+      url: SITE,
+      telephone: "+27-63-039-2007",
+      image: `${SITE}/pr/hero-db-board.png`,
+      areaServed: AREAS.map((a) => ({ "@type": "Place", name: `${a}, Gauteng` })),
+    },
   },
   {
-    title: "Done properly, not quickly",
-    description:
-      "Correct sizing, level bases and tested connections. We would rather take longer than send you a system that fails in a year.",
-  },
-  {
-    title: "Transparent pricing",
-    description:
-      "Estimate on the phone, itemised quote in writing, and no surprise extras added to the invoice afterwards.",
-  },
-  {
-    title: "One team for the whole system",
-    description:
-      "From drilling to pump, tank and plumbing, one team means no finger-pointing between contractors when something needs fixing.",
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+      { "@type": "ListItem", position: 2, name: "About", item: `${SITE}/about` },
+    ],
   },
 ]
 
-const roles = [
-  "Borehole drilling crews",
-  "Pump technicians",
-  "Solar and irrigation installers",
-  "Plumbers and geyser installers",
-  "Emergency response teams",
-  "Site assessors and quoting staff",
-]
+const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi Power Rescue, I would like to chat about a job.")}`
 
 export default function AboutPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="bg-primary py-16 text-primary-foreground lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              About Borehole Works
-            </p>
-            <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              Gauteng's water systems, <span className="text-accent">done right.</span>
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
-              We drill boreholes, install pumps, tanks, solar and irrigation systems, and handle the
-              plumbing that connects it all, for homes, farms and businesses across{" "}
-              <strong className="text-white">Pretoria, Johannesburg, Midrand</strong> and the rest of Gauteng.
-            </p>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <CallButton size="lg" />
-              <WhatsAppCta size="lg" label="WhatsApp us" />
-              <EmailCta size="lg" onDark />
-            </div>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-primary text-white">
+        <Image
+          src="/pr/hero-db-board.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="-scale-x-100 object-cover opacity-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/60" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+          <nav aria-label="Breadcrumb" className="text-sm text-white/60">
+            <Link href="/" className="hover:text-white">
+              Home
+            </Link>
+            <span className="mx-2">/</span>
+            <span className="text-white">About</span>
+          </nav>
+          <h1 className="mt-6 max-w-3xl text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
+            Gauteng&apos;s electricians, <span className="text-accent">done right.</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75">
+            We fix the fault, then stay on for the installations, maintenance and solar that stop it happening again.
+            Homes and businesses across Johannesburg, Pretoria, the East and West Rand.
+          </p>
 
-            <div className="mt-12 grid grid-cols-3 gap-4 border-t border-primary-foreground/15 pt-8">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-3xl font-bold text-accent sm:text-4xl">{stat.value}</p>
-                  <p className="mt-1 text-xs text-primary-foreground/70 sm:text-sm">{stat.label}</p>
-                </div>
-              ))}
+          <dl className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-white/15 pt-8">
+            <div>
+              <dt className="text-xs text-white/60 sm:text-sm">Emergency line</dt>
+              <dd className="mt-1 font-display text-3xl font-extrabold text-accent sm:text-4xl">24/7</dd>
             </div>
-          </div>
+            <div>
+              <dt className="text-xs text-white/60 sm:text-sm">Services</dt>
+              <dd className="mt-1 font-display text-3xl font-extrabold text-accent sm:text-4xl">{SERVICES.length}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-white/60 sm:text-sm">Areas covered</dt>
+              <dd className="mt-1 font-display text-3xl font-extrabold text-accent sm:text-4xl">{AREAS.length}</dd>
+            </div>
+          </dl>
         </div>
       </section>
 
-      {/* MOVING PHOTOS */}
-      <section className="overflow-hidden bg-muted py-10">
-        <ImageMarquee images={marqueeImages} name="about" direction="left" speed={40} />
-      </section>
-
-      {/* WHO WE ARE */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto grid items-center gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-8">
+      {/* Who we are */}
+      <section className="bg-background py-20 lg:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="text-3xl font-bold lg:text-4xl">Who we are</h2>
+            <p className="text-sm font-semibold text-muted-foreground">Who we are</p>
+            <h2 className="mt-3 text-balance font-display text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl">
+              One team for everything electrical.
+            </h2>
             <p className="mt-6 leading-relaxed text-muted-foreground">
-              <strong className="text-foreground">Borehole Works</strong> is a South African water systems
-              company. With over 10 years of experience, we help people take control of their water supply:
-              drilling boreholes, sizing and installing pumps, setting up storage tanks, and powering it all
-              with solar where it makes sense.
+              <strong className="text-foreground">Power Rescue Electrical</strong> is a Gauteng electrical company for
+              homes and businesses. When the power goes, we come running: tripping breakers, dead plugs, burnt wiring
+              and total outages, day and night.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Most of our customers come to us after a water problem: municipal cuts, a pump that has died,
-              a tank that never quite worked, or a borehole that was drilled but never finished properly. We
-              fix the actual cause, not just the symptom.
+              Most of the time that is not the end of it. Old boards, overloaded circuits and load shedding are why
+              people call us again, so we also handle DB board upgrades, installations, maintenance, COCs, solar and
+              inverter backup. Same team, same standard, same number to call.
             </p>
-            <p className="mt-4 leading-relaxed text-muted-foreground">
-              We'd rather earn your call next time than oversell you this time.
-            </p>
-          </div>
-
-          <WatermarkedImage
-            src="/pump_systems_boreholes.jpg"
-            alt="Borehole Works pump system installation in Gauteng"
-            className="aspect-[4/3] rounded-2xl shadow-xl"
-            sizes="(min-width: 1024px) 50vw, 100vw"
-          />
-        </div>
-      </section>
-
-      {/* WHAT WE DO */}
-      <section className="border-y border-border bg-muted py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold lg:text-4xl">Everything your water system needs</h2>
-            <p className="mt-4 text-muted-foreground">Nine services, one team.</p>
-          </div>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <Link
-                key={service.href}
-                href={service.href}
-                className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-accent"
-              >
-                <h3 className="font-bold">{service.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{service.copy}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* HOW WE WORK */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold lg:text-4xl">How we work</h2>
-            <p className="mt-4 text-muted-foreground">No surprises, from the first call to the last connection.</p>
-          </div>
-
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((step, i) => (
-              <div key={step.title}>
-                <p className="text-sm font-bold text-accent">{String(i + 1).padStart(2, "0")}</p>
-                <h3 className="mt-2 text-lg font-bold">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.copy}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* VALUES */}
-      <section className="border-y border-border bg-muted py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold lg:text-4xl">What we stand for</h2>
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="relative overflow-hidden rounded-2xl border border-border bg-card p-6"
-              >
-                <div className="absolute left-0 top-0 h-full w-1 bg-accent" aria-hidden="true" />
-                <h3 className="text-lg font-bold">{value.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TEAM */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto grid items-center gap-12 px-4 lg:grid-cols-2 lg:gap-16 lg:px-8">
-          <WatermarkedImage
-            src="/borehole_drilling_rig_action.webp"
-            alt="Borehole Works drilling crew on site in Gauteng"
-            className="aspect-[4/3] rounded-2xl shadow-xl"
-            sizes="(min-width: 1024px) 50vw, 100vw"
-          />
-
-          <div>
-            <h2 className="text-3xl font-bold lg:text-4xl">The people behind the phone</h2>
-            <p className="mt-6 leading-relaxed text-muted-foreground">
-              A water system takes several skills. Our team covers the lot, so you deal with one company
-              from first assessment to final handover.
-            </p>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {roles.map((role) => (
-                <li key={role} className="rounded-lg border border-border bg-card px-4 py-3 text-sm font-medium">
-                  {role}
+            <ul className="mt-6 space-y-3">
+              {["Registered electricians", "COC issued where required", "Open day and night for emergencies"].map((t) => (
+                <li key={t} className="flex items-center gap-3 text-foreground">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent">
+                    <Tick className="border-primary" />
+                  </span>
+                  {t}
                 </li>
               ))}
             </ul>
           </div>
-        </div>
-      </section>
 
-      {/* CLOSING CTA */}
-      <section className="bg-primary py-16 text-primary-foreground">
-        <div className="container mx-auto px-4 text-center lg:px-8">
-          <h2 className="text-3xl font-bold lg:text-4xl">Let's get your water sorted.</h2>
-          <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
-            Call now for a straight answer and a free site assessment, or send us a photo on WhatsApp.
-          </p>
-          <BigPhoneLink />
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <CallButton size="lg" />
-            <WhatsAppCta size="lg" label="WhatsApp us" />
-            <EmailCta size="lg" onDark />
+          <div className="grid grid-cols-2 gap-3">
+            {MOSAIC.map((m, i) => (
+              <div
+                key={m.src}
+                className={`relative overflow-hidden rounded-[24px] ${i % 3 === 0 ? "aspect-[4/5]" : "aspect-square"} ${i === 1 || i === 2 ? "mt-0" : ""}`}
+              >
+                <Image src={m.src} alt={m.alt} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <div className="h-20 md:hidden" aria-hidden="true" />
-      <StickyCallBar />
+      {/* What we do */}
+      <section className="border-y border-border bg-secondary/50 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <h2 className="max-w-2xl text-balance font-display text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl">
+              What we do.
+            </h2>
+            <Link href="/services" className="font-semibold text-primary hover:underline">
+              View all services
+            </Link>
+          </div>
+          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {SERVICES.map((s) => (
+              <li key={s.slug} className="group relative overflow-hidden rounded-[24px] border border-border bg-card">
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={s.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display text-lg font-bold text-foreground">
+                    <Link href={`/${s.slug}`} className="after:absolute after:inset-0">
+                      {s.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{s.short}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AboutPage",
-            name: "About Borehole Works",
-            url: "https://www.boreholeworks.co.za/about",
-            mainEntity: {
-              "@type": "Organization",
-              name: "Borehole Works",
-              url: "https://www.boreholeworks.co.za",
-              telephone: "+27-72-411-5472",
-              email: "info@boreholeworks.co.za",
-              areaServed: ["Gauteng", "Pretoria", "Johannesburg", "Midrand", "Sandton", "Centurion"],
-            },
-          }),
-        }}
-      />
+      {/* How we work */}
+      <section className="bg-accent py-20 text-accent-foreground lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <h2 className="max-w-xl text-balance font-display text-4xl font-bold leading-[1.05] sm:text-5xl">
+            How we work. No surprises.
+          </h2>
+          <ol className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+            {STEPS.map((s, i) => (
+              <li key={s.title} className="border-t-2 border-primary pt-6">
+                <span className="font-display text-6xl font-extrabold leading-none tabular-nums">{i + 1}</span>
+                <h3 className="mt-5 font-display text-2xl font-bold">{s.title}</h3>
+                <p className="mt-2 max-w-sm leading-relaxed text-primary/75">{s.copy}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="bg-background py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <p className="text-sm font-semibold text-muted-foreground">What we stand for</p>
+          <h2 className="mt-3 max-w-2xl text-balance font-display text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl">
+            Four promises behind every job.
+          </h2>
+          <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {VALUES.map((v, i) => (
+              <li key={v.title} className="rounded-[28px] border border-border bg-secondary/60 p-6">
+                <p className="font-display text-sm font-bold tabular-nums text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mt-1 font-display text-xl font-bold text-foreground">{v.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{v.copy}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="border-t border-border bg-secondary/50 py-20 lg:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[32px]">
+            <Image
+              src="/pr/power-rescue-commercial-sub-panel-installation.jpg"
+              alt="Power Rescue electricians installing a commercial sub-panel"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <h2 className="text-balance font-display text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl">
+              The people behind the phone.
+            </h2>
+            <p className="mt-5 max-w-lg leading-relaxed text-muted-foreground">
+              Electrical work takes several skills. Our team covers them, so you deal with one company from the first
+              call to the last test.
+            </p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {ROLES.map((r) => (
+                <li key={r} className="rounded-2xl border border-border bg-card px-4 py-3 text-sm font-medium text-foreground">
+                  {r}
+                </li>
+              ))}
+            </ul>
+            <Link href="/gallery" className="mt-8 inline-block font-semibold text-primary hover:underline">
+              See our work
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Areas */}
+      <section className="bg-background py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <h2 className="font-display text-3xl font-bold text-foreground">Where we work</h2>
+          <ul className="mt-6 flex flex-wrap gap-2">
+            {AREAS.map((a) => (
+              <li key={a} className="rounded-full border border-border bg-card px-4 py-1.5 text-sm font-medium text-foreground">
+                {a}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-muted-foreground">
+            Further out?{" "}
+            <Link href="/areas" className="font-semibold text-primary hover:underline">
+              See all areas
+            </Link>{" "}
+            or send us your suburb.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-primary py-16 text-center text-white">
+        <h2 className="text-balance font-display text-3xl font-bold sm:text-4xl">Let&apos;s get it sorted.</h2>
+        <p className="mx-auto mt-4 max-w-md text-white/75">
+          Call for a straight answer, or send a photo on WhatsApp.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href={`tel:${PHONE_TEL}`}
+            className="inline-flex h-14 items-center rounded-full bg-white px-8 font-semibold text-primary transition-transform hover:scale-[1.02]"
+          >
+            Call {PHONE_DISPLAY}
+          </a>
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-14 items-center rounded-full border border-white/25 px-8 font-semibold transition-colors hover:bg-white/10"
+          >
+            WhatsApp us
+          </a>
+        </div>
+      </section>
     </>
   )
 }

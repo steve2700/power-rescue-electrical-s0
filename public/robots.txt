@@ -1,12 +1,12 @@
-# robots.txt for Borehole Works
-# https://www.boreholeworks.co.za/robots.txt
+# robots.txt for Power Rescue Electrical
+# https://www.powerrescue.co.za/robots.txt
 
 # Allow all bots to crawl everything
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.boreholeworks.co.za/sitemap.xml
+Sitemap: https://www.powerrescue.co.za/sitemap.xml
 
 # ===== Search engines =====
 

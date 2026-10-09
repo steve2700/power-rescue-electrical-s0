@@ -24,22 +24,37 @@ const REGIONS = [
     title: "Johannesburg and north",
     copy: "Northern suburbs and the Joburg core, from Sandton and Fourways to Midrand.",
     areas: ["Johannesburg", "Sandton", "Randburg", "Fourways", "Midrand"],
+    image: "/pr/power-rescue-residential-home-solar-system-installation.jpg",
+    alt: "Home solar installation",
   },
   {
     title: "West Rand and Soweto",
     copy: "Roodepoort, Krugersdorp and Soweto, for homes, shops and complexes.",
     areas: ["Roodepoort", "Krugersdorp", "Soweto"],
+    image: "/pr/power-rescue-commercial-sub-panel-installation.jpg",
+    alt: "Commercial sub-panel installation",
   },
   {
     title: "Pretoria and Centurion",
     copy: "Across Pretoria, Pretoria East and Centurion.",
     areas: ["Pretoria", "Pretoria East", "Centurion"],
+    image: "/pr/power-rescue-residential-distribution-board-installation.jpg",
+    alt: "Residential distribution board installation",
   },
   {
     title: "East Rand",
     copy: "From Kempton Park to Alberton, including Benoni, Boksburg and Germiston.",
     areas: ["Kempton Park", "Benoni", "Boksburg", "Germiston", "Alberton"],
+    image: "/pr/power-rescue-industrial-three-phase-panel-wiring.jpg",
+    alt: "Industrial three-phase panel wiring",
   },
+]
+
+const STRIP = [
+  { src: "/pr/job-emergency.png", alt: "Electrician attending an emergency call-out", caption: "Emergency call-outs" },
+  { src: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg", alt: "Electrical inspection with a multimeter", caption: "Testing and COCs" },
+  { src: "/pr/power-rescue-commercial-rooftop-solar-array-system.jpg", alt: "Commercial rooftop solar array", caption: "Solar" },
+  { src: "/pr/power-rescue-automatic-sliding-gate-motor-installation.jpg", alt: "Sliding gate motor installation", caption: "Gates and security" },
 ]
 
 // Any area in AREAS that hasn't been placed in a region above still gets shown
@@ -109,6 +124,31 @@ export default function AreasPage() {
         </div>
       </section>
 
+      {/* Photo strip */}
+      <section className="relative z-10 -mt-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <ul className="grid grid-cols-2 gap-3 md:grid-cols-4">
+            {STRIP.map((p) => (
+              <li
+                key={p.src}
+                className="group relative aspect-[4/3] overflow-hidden rounded-[24px] border-4 border-background shadow-xl"
+              >
+                <Image
+                  src={p.src}
+                  alt={p.alt}
+                  fill
+                  sizes="(min-width: 768px) 25vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 to-transparent p-3 pt-10">
+                  <p className="text-sm font-semibold text-white">{p.caption}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Big area list */}
       <section className="border-b border-border bg-secondary/50 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -141,9 +181,23 @@ export default function AreasPage() {
             Where we work, region by region.
           </h2>
           <ul className="mt-14 grid gap-5 sm:grid-cols-2">
-            {[...REGIONS, ...(unplaced.length ? [{ title: "Also covering", copy: "", areas: unplaced }] : [])].map(
+            {[
+              ...REGIONS,
+              ...(unplaced.length ? [{ title: "Also covering", copy: "", areas: unplaced, image: "", alt: "" }] : []),
+            ].map(
               (r) => (
-                <li key={r.title} className="rounded-[28px] border border-border bg-secondary/60 p-7">
+                <li key={r.title} className="overflow-hidden rounded-[28px] border border-border bg-secondary/60 p-7">
+                  {r.image && (
+                    <div className="relative -mx-7 -mt-7 mb-6 aspect-[16/8] overflow-hidden">
+                      <Image
+                        src={r.image}
+                        alt={r.alt}
+                        fill
+                        sizes="(min-width: 640px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
                   <h3 className="font-display text-2xl font-bold text-foreground">{r.title}</h3>
                   {r.copy && <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.copy}</p>}
                   <ul className="mt-5 flex flex-wrap gap-2">
