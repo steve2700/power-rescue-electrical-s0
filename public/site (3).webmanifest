@@ -1,0 +1,25 @@
+{
+  "name": "Power Rescue Electrical",
+  "short_name": "Power Rescue",
+  "description": "24/7 emergency electricians across Gauteng. Repairs, installations, COCs, solar, backup power, solar geysers, electric fences, CCTV and gate motors.",
+  "lang": "en-ZA",
+  "id": "/",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "utilities"],
+  "theme_color": "#151a33",
+  "background_color": "#151a33",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/"
+}
