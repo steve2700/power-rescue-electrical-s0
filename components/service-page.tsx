@@ -8,6 +8,7 @@ import { LoadPlanner } from "@/components/load-planner"
 import { DriftBackdrop } from "@/components/moving-image"
 import { Reveal } from "@/components/reveal"
 import { AREAS, SERVICES } from "@/lib/power-rescue"
+import { isRealPhoto, photoInfo } from "@/lib/photos"
 import type { ServicePageData } from "@/lib/service-pages"
 import { cn } from "@/lib/utils"
 
@@ -17,6 +18,8 @@ export function ServicePage({ data }: { data: ServicePageData }) {
   const service = SERVICES.find((s) => s.slug === data.slug)
   const name = service?.title ?? data.h1
   const url = `${SITE}/${data.slug}`
+  // "Our work" only ever shows genuine job photos
+  const gallery = data.gallery.filter((g) => isRealPhoto(g.src))
   const related = data.related
     .map((slug) => SERVICES.find((s) => s.slug === slug))
     .filter((s): s is NonNullable<typeof s> => Boolean(s))
@@ -186,37 +189,35 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       )}
 
       {/* Gallery */}
+      {gallery.length >= 2 && (
       <section className="bg-background pb-20 lg:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <p className="text-sm font-semibold text-muted-foreground">Our work</p>
           <h2 className="mt-3 max-w-2xl text-balance font-display text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl">
             Real jobs, done by our team.
           </h2>
-          <ul className="mt-12 grid auto-rows-[170px] grid-cols-2 gap-3 md:auto-rows-[220px] md:grid-cols-4">
-            {data.gallery.map((g, i) => (
+          <ul className={cn("mt-12 grid grid-cols-2 gap-3", gallery.length === 3 ? "md:grid-cols-3" : "md:grid-cols-4")}>
+            {gallery.map((g, i) => (
               <li
                 key={g.src}
-                className={cn(
-                  "group relative overflow-hidden rounded-[24px]",
-                  i === 0 && "col-span-2 row-span-2",
-                  i === 3 && "col-span-2",
-                )}
+                className="group relative aspect-[4/3] overflow-hidden rounded-[24px]"
               >
                 <Image
                   src={g.src}
-                  alt={g.alt}
+                  alt={photoInfo(g.src)?.alt ?? g.alt}
                   fill
-                  sizes={i === 0 || i === 3 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"}
+                  sizes="(min-width: 768px) 25vw, 50vw"
                   className={cn("object-cover", ["drift-a", "drift-b", "drift-c"][i % 3])}
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 to-transparent p-4 pt-12">
-                  <p className="text-sm font-semibold text-white">{g.caption}</p>
+                  <p className="text-sm font-semibold text-white">{photoInfo(g.src)?.caption ?? g.caption}</p>
                 </div>
               </li>
             ))}
           </ul>
         </div>
       </section>
+      )}
 
       {/* Steps */}
       <section className="bg-accent py-20 text-accent-foreground lg:py-24">

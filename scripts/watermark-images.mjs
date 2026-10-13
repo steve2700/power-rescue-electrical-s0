@@ -23,6 +23,45 @@ const CORNER_OPACITY = 0.9
 const CENTER_OPACITY = 0.1
 const EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp"])
 
+// Privacy fixes applied to the web copies. The untouched originals in originals/pr are never changed.
+// Positions are fractions of the photo (0 to 1), so they work at any resolution.
+//   cropTop: cut this share off the top   hide: pixelate these boxes {x, y, w, h}
+const FIXES = {
+  // Burned-in GPS coordinates and date stamp across the top of the photo
+  "power-rescue-commercial-inverter-and-battery-bank-system.jpg": { cropTop: 0.24 },
+  // A client's house number on the wall
+  "power-rescue-driveway-gate-automation-wiring.jpg": { hide: [{ x: 0.74, y: 0.18, w: 0.24, h: 0.17 }] },
+}
+
+async function applyFixes(input, file) {
+  const fix = FIXES[file]
+  const loaded = await sharp(input).rotate().toBuffer({ resolveWithObject: true })
+  let { data } = loaded
+  const { info } = loaded
+  if (!fix) return data
+  let height = info.height
+  if (fix.cropTop) {
+    const cut = Math.round(info.height * fix.cropTop)
+    data = await sharp(data).extract({ left: 0, top: cut, width: info.width, height: info.height - cut }).toBuffer()
+    height = info.height - cut
+  }
+  for (const b of fix.hide ?? []) {
+    const left = Math.round(b.x * info.width)
+    const top = Math.round(b.y * height)
+    const width = Math.min(info.width - left, Math.round(b.w * info.width))
+    const h = Math.min(height - top, Math.round(b.h * height))
+    // Pixelate hard so the digits cannot be recovered
+    // (two separate steps on purpose: sharp only applies the last resize in a chain)
+    const tiny = await sharp(data)
+      .extract({ left, top, width, height: h })
+      .resize({ width: Math.max(2, Math.round(width / 10)), height: Math.max(2, Math.round(h / 10)), fit: "fill" })
+      .toBuffer()
+    const patch = await sharp(tiny).resize({ width, height: h, fit: "fill", kernel: "nearest" }).toBuffer()
+    data = await sharp(data).composite([{ input: patch, left, top }]).toBuffer()
+  }
+  return data
+}
+
 // Fade an image by multiplying its alpha channel
 async function withOpacity(buf, opacity) {
   return sharp(buf)
@@ -48,13 +87,13 @@ async function stamp(file) {
   const ext = path.extname(file).toLowerCase()
 
   // Auto-rotate from camera data, then shrink if the photo is huge
-  const { data, info } = await sharp(input)
-    .rotate()
+  const fixed = await applyFixes(input, file)
+  const { data, info } = await sharp(fixed)
     .resize({ width: MAX_WIDTH, withoutEnlargement: true })
     .toBuffer({ resolveWithObject: true })
 
   const svg = await readFile(MARK)
-  const cornerW = Math.max(84, Math.round(info.width * CORNER_SIZE))
+  const cornerW = Math.max(36, Math.round(info.width * CORNER_SIZE))
   const centerW = Math.round(info.width * CENTER_SIZE)
   const margin = Math.round(info.width * 0.025)
 

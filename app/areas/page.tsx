@@ -25,37 +25,37 @@ const REGIONS = [
     title: "Johannesburg and north",
     copy: "Northern suburbs and the Joburg core, from Sandton and Fourways to Midrand.",
     areas: ["Johannesburg", "Sandton", "Randburg", "Fourways", "Midrand"],
-    image: "/pr/power-rescue-residential-home-solar-system-installation.jpg",
-    alt: "Home solar installation",
+    image: "/pr/solar-roof.png",
+    alt: "Rooftop solar panels",
   },
   {
     title: "West Rand and Soweto",
     copy: "Roodepoort, Krugersdorp and Soweto, for homes, shops and complexes.",
     areas: ["Roodepoort", "Krugersdorp", "Soweto"],
-    image: "/pr/power-rescue-commercial-sub-panel-installation.jpg",
-    alt: "Commercial sub-panel installation",
+    image: "/pr/lighting-install.png",
+    alt: "Lighting installation",
   },
   {
     title: "Pretoria and Centurion",
     copy: "Across Pretoria, Pretoria East and Centurion.",
     areas: ["Pretoria", "Pretoria East", "Centurion"],
-    image: "/pr/power-rescue-residential-distribution-board-installation.jpg",
-    alt: "Residential distribution board installation",
+    image: "/pr/hero-db-board.png",
+    alt: "Electrician working on a distribution board",
   },
   {
     title: "East Rand",
     copy: "From Kempton Park to Alberton, including Benoni, Boksburg and Germiston.",
     areas: ["Kempton Park", "Benoni", "Boksburg", "Germiston", "Alberton"],
-    image: "/pr/power-rescue-industrial-three-phase-panel-wiring.jpg",
-    alt: "Industrial three-phase panel wiring",
+    image: "/pr/inverter-install.png",
+    alt: "Hybrid inverter and battery installation",
   },
 ]
 
 const STRIP = [
-  { src: "/pr/job-emergency.png", alt: "Electrician attending an emergency call-out", caption: "Emergency call-outs" },
-  { src: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg", alt: "Electrical inspection with a multimeter", caption: "Testing and COCs" },
-  { src: "/pr/power-rescue-commercial-rooftop-solar-array-system.jpg", alt: "Commercial rooftop solar array", caption: "Solar" },
-  { src: "/pr/power-rescue-automatic-sliding-gate-motor-installation.jpg", alt: "Sliding gate motor installation", caption: "Gates and security" },
+  { src: "/pr/power-rescue-outdoor-feeder-pillar-box-maintenance.jpg", alt: "Electrician working inside an open feeder pillar", caption: "Outdoor repairs" },
+  { src: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg", alt: "Electrician testing a distribution board with a multimeter", caption: "Testing and COCs" },
+  { src: "/pr/power-rescue-residential-home-solar-system-installation.jpg", alt: "Solar panels installed on a brick house roof", caption: "Solar" },
+  { src: "/pr/power-rescue-automatic-sliding-gate-motor-installation.jpg", alt: "New wooden sliding gate being installed at a property", caption: "Gates and security" },
 ]
 
 // Any area in AREAS that hasn't been placed in a region above still gets shown

@@ -25,14 +25,6 @@ export const SERVICES: Service[] = [
     image: "/pr/lighting-install.png",
   },
   {
-    slug: "commercial-industrial-electrical",
-    title: "Commercial and Industrial Electrical",
-    short: "Sub-panels, three-phase, solar and battery rooms",
-    copy: "Electrical work for shops, offices, warehouses and industrial sites: sub-boards, three-phase panels, lighting, battery rooms and commercial solar, planned around keeping your business running.",
-    tag: "Business and industry",
-    image: "/pr/power-rescue-industrial-main-switchgear-orange-panels.jpg",
-  },
-  {
     slug: "electrical-maintenance-fault-finding",
     title: "Electrical Maintenance and Fault Finding",
     short: "Scheduled checks and repairs",
@@ -47,6 +39,14 @@ export const SERVICES: Service[] = [
     copy: "Rooftop solar designed around your real consumption, not a sales target. Mounting, wiring, commissioning and paperwork included.",
     tag: "Grid tied and hybrid",
     image: "/pr/solar-roof.png",
+  },
+  {
+    slug: "commercial-industrial-electrical",
+    title: "Commercial and Industrial Electrical",
+    short: "Sub-panels, three-phase, solar and battery rooms",
+    copy: "Electrical work for shops, offices, warehouses and industrial sites: sub-boards, three-phase panels, lighting, battery rooms and commercial solar, planned around keeping your business running.",
+    tag: "Business and industry",
+    image: "/pr/power-rescue-commercial-park-rooftop-solar-installation-aerial.webp",
   },
   {
     slug: "inverter-battery-backup",
@@ -110,7 +110,7 @@ export const SERVICES: Service[] = [
     short: "Hot water from the sun, and repairs",
     copy: "Switch to a solar geyser or get your existing geyser working again. Elements, thermostats, controllers and pumps repaired, and new systems installed.",
     tag: "Repairs welcome",
-    image: "/pr/power-rescue-residential-solar-geyser-tiled-roof.jpg",
+    image: "/pr/power-rescue-apollo-solar-geyser-rooftop-installation.jpg",
   },
 ]
 

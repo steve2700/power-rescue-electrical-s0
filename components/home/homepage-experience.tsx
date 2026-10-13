@@ -4,6 +4,7 @@ import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_NUMBER } from "@/components/contact-
 import { DriftBackdrop } from "@/components/moving-image"
 import { PhotoReel, RollingColumns, type Photo } from "@/components/photo-motion"
 import { Reveal } from "@/components/reveal"
+import { photoInfo } from "@/lib/photos"
 import { Tick } from "@/components/tick"
 import { AREAS, SERVICES } from "@/lib/power-rescue"
 import { JobCard } from "./job-card"
@@ -21,31 +22,35 @@ const REPAIR_SLUGS = [
 
 const PR = "/pr/power-rescue-"
 
+// The reel says "recent jobs", so it only ever uses genuine job photos (see lib/photos.ts)
+const pr = (name: string): Photo => ({ src: `${PR}${name}`, alt: photoInfo(`${PR}${name}`)?.alt ?? "" })
+
 const REEL: Photo[] = [
-  { src: `${PR}residential-distribution-board-installation.jpg`, alt: "New residential distribution board installed" },
-  { src: `${PR}electric-fence-repair-and-installation.jpg`, alt: "Electric fence repair and installation" },
-  { src: `${PR}automatic-sliding-gate-motor-installation.jpg`, alt: "Sliding gate motor installation" },
-  { src: `${PR}rooftop-solar-panels-and-solar-geyser-system.jpg`, alt: "Rooftop solar panels and a solar geyser" },
-  { src: `${PR}residential-cctv-camera-installation.jpg`, alt: "Residential CCTV camera installation" },
-  { src: `${PR}commercial-sub-panel-installation.jpg`, alt: "Commercial sub-panel installation" },
-  { src: `${PR}hybrid-inverter-and-lithium-battery-backup-system.jpg`, alt: "Hybrid inverter and lithium battery backup" },
-  { src: `${PR}technician-repairing-outdoor-electrical-distribution-box.jpg`, alt: "Technician repairing an outdoor distribution box" },
-  { src: `${PR}industrial-three-phase-panel-wiring.jpg`, alt: "Industrial three-phase panel wiring" },
-  { src: `${PR}dahua-intercom-access-control-keypad.jpg`, alt: "Intercom and access control keypad" },
-  { src: `${PR}commercial-rooftop-solar-array-drone-view.jpg`, alt: "Commercial rooftop solar array from above" },
-  { src: `${PR}industrial-main-switchgear-orange-panels.jpg`, alt: "Industrial main switchgear" },
-  { src: `${PR}containerized-industrial-solar-generator-system.jpg`, alt: "Containerised industrial solar generator" },
+  pr("plastered-wall-top-electric-fence-installation.jpg"),
+  pr("residential-cctv-camera-installation.jpg"),
+  pr("residential-home-solar-system-installation.jpg"),
+  pr("nemtek-wizord-4-electric-fence-energizer.jpg"),
+  pr("hybrid-inverter-and-lithium-battery-backup-system.jpg"),
+  pr("dahua-intercom-access-control-keypad.jpg"),
+  pr("industrial-warehouse-rooftop-solar-system.jpg"),
+  pr("outdoor-beam-alarm-sensor-installation.jpg"),
+  pr("boundary-wall-electric-security-fencing.jpg"),
+  pr("commercial-park-rooftop-solar-installation-aerial.webp"),
+  pr("outdoor-bullet-cctv-camera-brick-wall.jpg"),
+  pr("electric-fence-repair-and-installation.jpg"),
+  pr("automatic-sliding-gate-motor-installation.jpg"),
+  pr("commercial-inverter-and-battery-bank-system.jpg"),
 ]
 
 const BACKUP_LEFT: Photo[] = [
-  { src: "/pr/inverter-install.png", alt: "Hybrid inverter and lithium battery on a garage wall" },
-  { src: `${PR}commercial-inverter-and-battery-bank-system.jpg`, alt: "Commercial inverter and battery bank" },
-  { src: `${PR}residential-home-solar-system-installation.jpg`, alt: "Home solar system installation" },
+  pr("hybrid-inverter-and-lithium-battery-backup-system.jpg"),
+  pr("commercial-inverter-and-battery-bank-system.jpg"),
+  pr("residential-home-solar-system-installation.jpg"),
 ]
 const BACKUP_RIGHT: Photo[] = [
-  { src: `${PR}hybrid-inverter-and-lithium-battery-backup-system.jpg`, alt: "Hybrid inverter and lithium battery backup system" },
-  { src: `${PR}commercial-rooftop-solar-array-system.jpg`, alt: "Commercial rooftop solar array" },
-  { src: `${PR}commercial-battery-room-cable-management.jpg`, alt: "Neat cable management in a battery room" },
+  pr("commercial-park-rooftop-solar-installation-aerial.webp"),
+  pr("industrial-warehouse-rooftop-solar-system.jpg"),
+  pr("residential-solar-panel-setup.jpg"),
 ]
 
 function Hero() {

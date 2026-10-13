@@ -36,7 +36,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     h1: "Electrical installations and wiring",
     h1Accent: "planned before the walls close.",
     lead: "New builds, extensions, kitchen remodels, rewires and commercial fit-outs. We plan the layout with you first, so plugs, switches and lights end up exactly where you will use them.",
-    heroImage: `${P}electrical-wiring-and-conduit-installation.jpg`,
+    heroImage: "/pr/lighting-install.png",
     keyFacts: ["Registered electricians", "COC issued on completion", "Homes, shops and industrial sites", "Tested before handover"],
     explorer: {
       eyebrow: "What are you building?",
@@ -59,10 +59,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Straight quoting", copy: "A clear quote after we have seen the job, so there are no surprises." },
     ],
     gallery: [
-      { src: `${P}electrical-wiring-and-conduit-installation.jpg`, alt: "Electrical wiring and conduit installation", caption: "Conduit and wiring" },
-      { src: `${P}electricians-foundation-conduit-trenching-site.jpg`, alt: "Electricians laying conduit in a foundation trench on a building site", caption: "Conduit trenching on site" },
-      { src: `${P}industrial-three-phase-panel-wiring.jpg`, alt: "Industrial three-phase panel wiring", caption: "Three-phase panel" },
-      { src: `${P}residential-distribution-board-installation.jpg`, alt: "Residential distribution board installation", caption: "Residential distribution board" },
+      { src: `${P}commercial-sub-panel-installation.jpg`, alt: "Sub-panel enclosure being installed on a wall", caption: "Sub-panel installation" },
+      { src: `${P}industrial-three-phase-panel-wiring.jpg`, alt: "Electrician wiring contactors in a three-phase panel", caption: "Three-phase panel wiring" },
+      { src: `${P}residential-distribution-board-installation.jpg`, alt: "New distribution board with an alarm keypad beside it", caption: "Home distribution board" },
+      { src: `${P}electricians-foundation-conduit-trenching-site.jpg`, alt: "Electrician in a hi-vis vest working at an outdoor distribution box beside a palisade fence", caption: "Outdoor distribution box" },
     ],
     stepsHeading: "From first call to certified installation.",
     steps: [
@@ -88,7 +88,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     h1: "Commercial and industrial electrical",
     h1Accent: "keeping your business running.",
     lead: "Shops, offices, warehouses and industrial sites. We install, repair and maintain the boards, wiring, lighting and solar your business depends on, and we plan the work around how you trade.",
-    heroImage: `${P}commercial-electrical-services.jpg`,
+    heroImage: "/pr/hero-db-board.png",
     keyFacts: ["Shops, offices, warehouses and plants", "Three-phase and sub-boards", "Commercial solar and battery rooms", "COC issued"],
     explorer: {
       eyebrow: "What does your site need?",
@@ -121,10 +121,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Testing and COC", copy: "Every installation is tested and a Certificate of Compliance issued where required." },
     ],
     gallery: [
-      { src: `${P}commercial-sub-panel-installation.jpg`, alt: "Commercial sub-panel installation", caption: "Commercial sub-panel" },
-      { src: `${P}industrial-three-phase-panel-wiring.jpg`, alt: "Industrial three-phase panel wiring", caption: "Three-phase panel" },
-      { src: `${P}commercial-distribution-board-rail-wiring.jpg`, alt: "Commercial distribution board rail wiring", caption: "Distribution board wiring" },
-      { src: `${P}commercial-rooftop-solar-array-drone-view.jpg`, alt: "Commercial rooftop solar array seen from above", caption: "Commercial rooftop solar" },
+      { src: `${P}industrial-main-switchgear-orange-panels.jpg`, alt: "Orange industrial main switchgear panels", caption: "Industrial switchgear" },
+      { src: `${P}industrial-three-phase-panel-wiring.jpg`, alt: "Electrician wiring contactors in a three-phase panel", caption: "Three-phase panel wiring" },
+      { src: `${P}industrial-capacitor-bank-power-factor-correction.jpg`, alt: "Capacitors inside an industrial power factor correction bank", caption: "Capacitor bank" },
+      { src: `${P}industrial-warehouse-rooftop-solar-system.jpg`, alt: "Solar panels on a warehouse roof", caption: "Warehouse rooftop solar" },
     ],
     stepsHeading: "From site visit to certified installation.",
     steps: [
@@ -151,7 +151,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     h1: "Electrical maintenance and fault finding",
     h1Accent: "before it becomes a call-out.",
     lead: "Flickering lights, warm sockets and breakers that trip now and then are warnings. We test circuits, earth leakage and connections to find the cause, then fix it properly.",
-    heroImage: `${P}electrical-inspection-multimeter-testing.jpg`,
+    heroImage: "/pr/maintenance-test.png",
     keyFacts: ["Registered electricians", "Homes, offices and complexes", "Planned or once-off", "Fault found, then fixed"],
     explorer: {
       eyebrow: "What are you noticing?",
@@ -175,10 +175,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Planned programmes", copy: "Regular checks for complexes, offices and landlords." },
     ],
     gallery: [
-      { src: `${P}electrical-inspection-multimeter-testing.jpg`, alt: "Electrical inspection with multimeter testing", caption: "Inspection and testing" },
-      { src: `${P}voltage-multimeter-testing-230v.jpg`, alt: "Voltage multimeter testing at 230V", caption: "Voltage testing" },
-      { src: `${P}electrical-db-board-maintenance.jpg`, alt: "Electrical DB board maintenance", caption: "DB board maintenance" },
-      { src: `${P}outdoor-feeder-pillar-box-maintenance.jpg`, alt: "Maintenance on an outdoor feeder pillar box", caption: "Feeder pillar maintenance" },
+      { src: `${P}electrical-inspection-multimeter-testing.jpg`, alt: "Electrician testing a distribution board with a multimeter and a checklist", caption: "Inspecting a DB board" },
+      { src: `${P}electrical-equipment-repair.jpg`, alt: "Open distribution box with loose coloured wires ready for rewiring", caption: "Rewiring a distribution box" },
+      { src: `${P}electrical-db-board-maintenance.jpg`, alt: "Modern distribution board with an alarm keypad beside it", caption: "DB board maintenance" },
+      { src: `${P}outdoor-feeder-pillar-box-maintenance.jpg`, alt: "Electrician working inside an open feeder pillar", caption: "Feeder pillar maintenance" },
     ],
     stepsHeading: "How we find and fix the fault.",
     steps: [
@@ -204,7 +204,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     h1: "Solar installation in Gauteng",
     h1Accent: "sized to what you actually use.",
     lead: "Rooftop solar designed around your real consumption, not a sales target. Mounting, wiring, commissioning and the required paperwork are all part of the job.",
-    heroImage: `${P}residential-home-solar-system-installation.jpg`,
+    heroImage: "/pr/solar-roof.png",
     keyFacts: ["Designed around your usage", "Grid-tied and hybrid", "Homes and commercial roofs", "Paperwork included"],
     explorer: {
       eyebrow: "Why solar?",
@@ -232,10 +232,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Paperwork", copy: "The required paperwork and certification are handled with the job." },
     ],
     gallery: [
-      { src: `${P}residential-home-solar-system-installation.jpg`, alt: "Residential home solar system installation", caption: "Home solar system" },
-      { src: `${P}corrugated-roof-solar-panel-array.jpg`, alt: "Solar panel array on a corrugated roof", caption: "Corrugated roof array" },
-      { src: `${P}commercial-rooftop-solar-array-system.jpg`, alt: "Commercial rooftop solar array system", caption: "Commercial rooftop" },
-      { src: `${P}solar-installation-team-on-commercial-roof.jpg`, alt: "Solar installation team working on a commercial roof", caption: "Installation team on a roof" },
+      { src: `${P}residential-home-solar-system-installation.jpg`, alt: "Solar panels installed on a brick house roof", caption: "Home solar system" },
+      { src: `${P}corrugated-roof-solar-panel-array.jpg`, alt: "Solar panel array on a house roof", caption: "Solar panels on a roof" },
+      { src: `${P}commercial-rooftop-solar-array-system.jpg`, alt: "Two installers fitting solar panels on a tiled roof", caption: "Installers on a tiled roof" },
+      { src: `${P}solar-installation-team-on-commercial-roof.jpg`, alt: "Installation team working on a large solar roof", caption: "Installers on a commercial roof" },
     ],
     stepsHeading: "From first call to power from the sun.",
     steps: [
@@ -290,10 +290,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Testing and COC", copy: "Tested before handover, with certification." },
     ],
     gallery: [
-      { src: "/pr/inverter-install.png", alt: "Hybrid inverter and lithium battery installed on a wall", caption: "Hybrid inverter and battery" },
-      { src: `${P}outdoor-main-electrical-enclosure-box.jpg`, alt: "Outdoor main electrical enclosure", caption: "Outdoor enclosure" },
-      { src: `${P}hybrid-inverter-and-lithium-battery-backup-system.jpg`, alt: "Hybrid inverter and lithium battery backup system", caption: "Hybrid inverter and battery" },
-      { src: `${P}commercial-inverter-and-battery-bank-system.jpg`, alt: "Commercial inverter and battery bank system", caption: "Commercial battery bank" },
+      { src: `${P}hybrid-inverter-and-lithium-battery-backup-system.jpg`, alt: "Wall-mounted hybrid inverter above three stacked lithium batteries", caption: "Hybrid inverter and lithium batteries" },
+      { src: `${P}commercial-inverter-and-battery-bank-system.jpg`, alt: "Wall-mounted inverters beside a rack of lithium batteries", caption: "Inverters and battery bank" },
+      { src: `${P}outdoor-main-electrical-enclosure-box.jpg`, alt: "Orange outdoor main electrical enclosure", caption: "Outdoor main enclosure" },
+      { src: `${P}commercial-battery-room-cable-management.jpg`, alt: "Battery room with neatly routed cable trays", caption: "Battery room cabling" },
     ],
     stepsHeading: "From load shedding to backup power.",
     steps: [
@@ -319,7 +319,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     h1: "Electrical COC certificates",
     h1Accent: "inspected, fixed and certified.",
     lead: "Selling, buying or sorting an insurance claim? We inspect the installation, repair what fails and issue a valid electrical Certificate of Compliance.",
-    heroImage: `${P}electrical-inspection-multimeter-testing.jpg`,
+    heroImage: "/pr/maintenance-test.png",
     keyFacts: ["Registered electricians", "Inspection and repairs in one visit", "For sale, insurance or alterations", "Valid certificate issued"],
     explorer: {
       eyebrow: "Do you need a COC?",
@@ -342,10 +342,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Works for agents too", copy: "We communicate directly with agents and attorneys where needed." },
     ],
     gallery: [
-      { src: `${P}electrical-inspection-multimeter-testing.jpg`, alt: "Electrical inspection with multimeter", caption: "Inspection" },
-      { src: "/pr/maintenance-test.png", alt: "Electrician testing an electrical installation", caption: "Testing" },
-      { src: `${P}residential-distribution-board-installation.jpg`, alt: "Residential distribution board", caption: "Board checks" },
-      { src: `${P}voltage-multimeter-testing-230v.jpg`, alt: "Voltage multimeter testing at 230V", caption: "Voltage checks" },
+      { src: `${P}electrical-inspection-multimeter-testing.jpg`, alt: "Electrician testing a distribution board with a multimeter and a checklist", caption: "Inspecting a DB board" },
+      { src: `${P}residential-distribution-board-installation.jpg`, alt: "New distribution board with an alarm keypad beside it", caption: "Home distribution board" },
+      { src: `${P}residential-electrical-services.jpg`, alt: "Distribution board with neatly terminated wiring", caption: "Neat board terminals" },
+      { src: `${P}electrical-db-board-maintenance.jpg`, alt: "Modern distribution board with an alarm keypad beside it", caption: "DB board maintenance" },
     ],
     stepsHeading: "From inspection to certificate.",
     steps: [
@@ -395,10 +395,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Testing and COC", copy: "Tested and certified before we leave." },
     ],
     gallery: [
-      { src: `${P}residential-distribution-board-installation.jpg`, alt: "Residential distribution board installation", caption: "New residential board" },
-      { src: `${P}electrical-db-board-maintenance.jpg`, alt: "DB board maintenance", caption: "Board maintenance" },
-      { src: "/pr/hero-db-board.png", alt: "Electrician working on a distribution board", caption: "On the board" },
-      { src: `${P}commercial-distribution-board-rail-wiring.jpg`, alt: "Commercial distribution board rail wiring", caption: "Commercial board wiring" },
+      { src: `${P}residential-distribution-board-installation.jpg`, alt: "New distribution board with an alarm keypad beside it", caption: "Home distribution board" },
+      { src: `${P}electrical-db-board-maintenance.jpg`, alt: "Modern distribution board with an alarm keypad beside it", caption: "DB board maintenance" },
+      { src: `${P}residential-electrical-services.jpg`, alt: "Distribution board with neatly terminated wiring", caption: "Neat board terminals" },
+      { src: `${P}commercial-distribution-board-rail-wiring.jpg`, alt: "Din-rail breakers wired inside a distribution board", caption: "Distribution board wiring" },
     ],
     stepsHeading: "Old board out, safe board in.",
     steps: [
@@ -447,10 +447,9 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Tested before we leave", copy: "Everything working and safe." },
     ],
     gallery: [
-      { src: "/pr/lighting-install.png", alt: "Lighting installation", caption: "Lighting installation" },
-      { src: `${P}commercial-ceiling-lighting-repair.jpg`, alt: "Commercial ceiling lighting repair", caption: "Commercial lighting" },
-      { src: `${P}outdoor-cctv-security-light-repair.jpg`, alt: "Outdoor CCTV and security light repair", caption: "Security lighting" },
-      { src: `${P}commercial-interior-ceiling-wiring-installation.jpg`, alt: "Commercial interior ceiling wiring installation", caption: "Ceiling wiring" },
+      { src: `${P}commercial-ceiling-lighting-repair.jpg`, alt: "Electricians repairing ceiling lighting in an office", caption: "Ceiling light repair" },
+      { src: `${P}outdoor-cctv-security-light-repair.jpg`, alt: "Electrician on a ladder repairing a pole-mounted security light", caption: "Security light repair" },
+      { src: `${P}commercial-interior-ceiling-wiring-installation.jpg`, alt: "Ceiling wiring installed in an empty commercial space", caption: "Ceiling wiring" },
     ],
     stepsHeading: "From idea to lit-up.",
     steps: [
@@ -476,7 +475,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     h1: "Electric fence installation and repairs",
     h1Accent: "no job too small.",
     lead: "New wall-top and free-standing fences, plus fast repairs for fences that are dead, weak or setting off the alarm. Big install or a single broken wire, we sort it.",
-    heroImage: `${P}boundary-wall-electric-security-fencing.jpg`,
+    heroImage: `${P}nemtek-wizord-4-electric-fence-energizer.jpg`,
     keyFacts: ["Installation and repairs", "Walls, boundaries and farms", "Small repairs welcome", "Fault found, then fixed"],
     explorer: {
       eyebrow: "What is wrong with your fence?",
@@ -509,10 +508,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Free-standing and farm fences", copy: "Posts, wire and energisers for plots, perimeters and farms." },
     ],
     gallery: [
-      { src: `${P}wall-top-electric-fence-bracket-wiring.jpg`, alt: "Wall-top electric fence bracket and wiring", caption: "Wall-top bracket wiring" },
-      { src: `${P}perimeter-free-standing-electric-fencing-plot.jpg`, alt: "Free-standing perimeter electric fence on a plot", caption: "Perimeter fence" },
-      { src: `${P}nemtek-wizord-4-electric-fence-energizer.jpg`, alt: "Nemtek Wizord 4 electric fence energiser", caption: "Nemtek energiser" },
-      { src: `${P}plastered-wall-top-electric-fence-installation.jpg`, alt: "Electric fence installed on a plastered wall", caption: "Wall-top installation" },
+      { src: `${P}plastered-wall-top-electric-fence-installation.jpg`, alt: "Electric fence on a plastered boundary wall with a warning sign", caption: "Wall-top electric fence" },
+      { src: `${P}nemtek-wizord-4-electric-fence-energizer.jpg`, alt: "Nemtek Wizord 4 electric fence energiser mounted on a wall", caption: "Nemtek Wizord 4 energiser" },
+      { src: `${P}wall-top-electric-fence-bracket-wiring.jpg`, alt: "Electric fence brackets and wiring on a wall", caption: "Fence bracket wiring" },
+      { src: `${P}perimeter-free-standing-electric-fencing-plot.jpg`, alt: "Free-standing perimeter fence posts on an open plot", caption: "Perimeter fencing on a plot" },
     ],
     stepsHeading: "From dead fence to live fence.",
     steps: [
@@ -571,10 +570,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Testing and handover", copy: "We check every camera and show you how to use it." },
     ],
     gallery: [
-      { src: `${P}outdoor-bullet-cctv-camera-brick-wall.jpg`, alt: "Outdoor bullet CCTV camera mounted on a brick wall", caption: "Outdoor bullet camera" },
-      { src: `${P}cctv-security-camera-monitor-display.jpg`, alt: "CCTV security camera monitor display", caption: "Live camera view" },
-      { src: `${P}residential-cctv-camera-installation.jpg`, alt: "Residential CCTV camera installation", caption: "Residential installation" },
-      { src: `${P}outdoor-cctv-security-light-repair.jpg`, alt: "Outdoor CCTV and security light repair", caption: "CCTV and security light repair" },
+      { src: `${P}outdoor-bullet-cctv-camera-brick-wall.jpg`, alt: "Bullet CCTV camera mounted on a brick wall", caption: "Bullet CCTV camera" },
+      { src: `${P}cctv-security-camera-monitor-display.jpg`, alt: "Wall-mounted monitor showing live CCTV camera views", caption: "Live CCTV view" },
+      { src: `${P}residential-cctv-camera-installation.jpg`, alt: "CCTV camera mounted on the brick corner of a house", caption: "Home CCTV camera" },
+      { src: `${P}outdoor-cctv-security-light-repair.jpg`, alt: "Electrician on a ladder repairing a pole-mounted security light", caption: "Security light repair" },
     ],
     stepsHeading: "From blind spot to full picture.",
     steps: [
@@ -600,7 +599,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     h1: "Security gate installation and repairs",
     h1Accent: "gate stuck? we come running.",
     lead: "Gate motor installation, automation wiring and fast repairs for gates that will not open, will not close or stopped working in the last power cut. No job is too small.",
-    heroImage: `${P}automatic-sliding-gate-motor-installation.jpg`,
+    heroImage: `${P}dahua-intercom-access-control-keypad.jpg`,
     keyFacts: ["Installation and repairs", "Sliding and swing gates", "Remotes, batteries and intercoms", "Small repairs welcome"],
     explorer: {
       eyebrow: "What is your gate doing?",
@@ -633,10 +632,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Repairs and servicing", copy: "Faulty motors, boards and parts diagnosed and repaired." },
     ],
     gallery: [
-      { src: `${P}automatic-sliding-gate-motor-installation.jpg`, alt: "Automatic sliding gate motor installation", caption: "Sliding gate motor" },
-      { src: `${P}driveway-gate-automation-wiring.jpg`, alt: "Driveway gate automation wiring", caption: "Automation wiring" },
-      { src: `${P}dahua-intercom-access-control-keypad.jpg`, alt: "Dahua intercom and access control keypad", caption: "Intercom and keypad" },
-      { src: `${P}outdoor-beam-alarm-sensor-installation.jpg`, alt: "Outdoor beam alarm sensor installation", caption: "Beam sensors" },
+      { src: `${P}automatic-sliding-gate-motor-installation.jpg`, alt: "New wooden sliding gate being installed at a property", caption: "New sliding gate on site" },
+      { src: `${P}driveway-gate-automation-wiring.jpg`, alt: "Electrician installing gate automation wiring at a driveway", caption: "Gate automation wiring" },
+      { src: `${P}dahua-intercom-access-control-keypad.jpg`, alt: "Dahua access control terminal mounted at a gate", caption: "Dahua access terminal" },
+      { src: `${P}outdoor-beam-alarm-sensor-installation.jpg`, alt: "Outdoor alarm beam sensor mounted on a wall", caption: "Outdoor beam sensor" },
     ],
     stepsHeading: "From stuck gate to smooth gate.",
     steps: [
@@ -662,7 +661,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     h1: "Solar geyser installation and repairs",
     h1Accent: "hot water from the sun.",
     lead: "Switch to a solar geyser and cut what your geyser costs to run, or get your existing one fixed. No hot water, a tripping geyser or a faulty element, we sort it. No job is too small.",
-    heroImage: `${P}residential-solar-geyser-tiled-roof.jpg`,
+    heroImage: "/pr/solar-roof.png",
     keyFacts: ["Installation and repairs", "Cut your geyser running costs", "Most popular makes", "Small repairs welcome"],
     explorer: {
       eyebrow: "What is your geyser doing?",
@@ -694,10 +693,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { title: "Servicing and cleaning", copy: "Panels cleaned and the system checked so it keeps performing." },
     ],
     gallery: [
-      { src: `${P}apollo-solar-geyser-rooftop-installation.jpg`, alt: "Apollo solar geyser rooftop installation", caption: "Rooftop solar geyser" },
-      { src: `${P}residential-solar-geyser-tiled-roof.jpg`, alt: "Solar geyser on a tiled roof", caption: "Tiled roof installation" },
-      { src: `${P}solar-panel-roof-maintenance-cleaning.jpg`, alt: "Solar panel roof maintenance and cleaning", caption: "Panel maintenance" },
-      { src: `${P}rooftop-solar-panels-and-solar-geyser-system.jpg`, alt: "Rooftop solar panels and solar geyser system", caption: "Panels and geyser system" },
+      { src: `${P}residential-solar-geyser-tiled-roof.jpg`, alt: "Solar geyser mounted on a tiled roof", caption: "Solar geyser on a tiled roof" },
+      { src: `${P}rooftop-solar-panels-and-solar-geyser-system.jpg`, alt: "Solar panels on a flat roof", caption: "Solar panels on a flat roof" },
+      { src: `${P}residential-solar-panel-setup.jpg`, alt: "Solar panels on a house roof", caption: "Home solar panels" },
+      { src: `${P}solar-panel-roof-maintenance-cleaning.jpg`, alt: "Solar panels on a roof beside a communications tower", caption: "Rooftop solar panels" },
     ],
     stepsHeading: "From cold showers to hot water.",
     steps: [

@@ -133,29 +133,29 @@ const SECTIONS = [
     id: "installations",
     title: "Installations, COCs and DB boards",
     items: installFaqs,
-    image: "/pr/power-rescue-residential-distribution-board-installation.jpg",
-    alt: "Residential distribution board installation",
+    image: "/pr/hero-db-board.png",
+    alt: "Electrician working on a distribution board",
   },
   {
     id: "solar",
     title: "Solar and backup power",
     items: solarFaqs,
-    image: "/pr/power-rescue-residential-home-solar-system-installation.jpg",
-    alt: "Home solar system installation",
+    image: "/pr/solar-roof.png",
+    alt: "Rooftop solar panels",
   },
   {
     id: "security",
     title: "Gates, fences, CCTV and geysers",
     items: securityFaqs,
-    image: "/pr/power-rescue-automatic-sliding-gate-motor-installation.jpg",
-    alt: "Automatic sliding gate motor installation",
+    image: "/pr/power-rescue-dahua-intercom-access-control-keypad.jpg",
+    alt: "Intercom and access control keypad",
   },
   {
     id: "general",
     title: "General",
     items: generalFaqs,
-    image: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg",
-    alt: "Electrical inspection with a multimeter",
+    image: "/pr/maintenance-test.png",
+    alt: "Electrician testing an electrical installation",
   },
 ]
 
@@ -163,7 +163,7 @@ const allFaqs = SECTIONS.flatMap((s) => s.items)
 
 const RELATED = [
   { href: "/emergency-electrical-repairs", title: "Emergency electrical repairs", copy: "Tripping, burning smells, no power.", image: "/pr/job-emergency.png" },
-  { href: "/electrical-coc-certificate", title: "Electrical COC certificates", copy: "For selling your home or insurance.", image: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg" },
+  { href: "/electrical-coc-certificate", title: "Electrical COC certificates", copy: "For selling your home or insurance.", image: "/pr/maintenance-test.png" },
   { href: "/inverter-battery-backup", title: "Inverter and battery backup", copy: "Keep the lights on through load shedding.", image: "/pr/inverter-install.png" },
 ]
 

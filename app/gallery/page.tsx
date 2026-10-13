@@ -4,6 +4,7 @@ import Link from "next/link"
 import { DriftBackdrop } from "@/components/moving-image"
 import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_NUMBER } from "@/components/contact-info"
 import { GalleryGrid, type GalleryItem } from "@/components/gallery-grid"
+import { isRealPhoto, photoInfo } from "@/lib/photos"
 
 const SITE = "https://www.powerrescue.co.za"
 
@@ -34,7 +35,7 @@ const CATEGORIES = [
   "Gates and electric fencing",
 ]
 
-const ITEMS: GalleryItem[] = [
+const RAW_ITEMS: GalleryItem[] = [
   // DB boards and panels
   { src: "/pr/hero-db-board.png", caption: "Working on a distribution board", category: "DB boards and panels" },
   { src: `${P}residential-distribution-board-installation.jpg`, caption: "Residential distribution board", category: "DB boards and panels" },
@@ -110,7 +111,16 @@ const ITEMS: GalleryItem[] = [
   { src: `${P}electrical-equipment-repair.jpg`, caption: "Electrical equipment repair", category: "Testing and maintenance" },
   { src: `${P}outdoor-feeder-pillar-box-maintenance.jpg`, caption: "Feeder pillar box maintenance", category: "Testing and maintenance" },
   { src: `${P}technician-repairing-outdoor-electrical-distribution-box.jpg`, caption: "Repairing an outdoor distribution box", category: "Testing and maintenance" },
+  // Backup power
+  { src: `${P}hybrid-inverter-and-lithium-battery-backup-system.jpg`, caption: "Hybrid inverter and lithium batteries", category: "Backup power" },
 ]
+
+// Only genuine job photos, described by what they actually show. Illustrations, AI and stock images stay out.
+const ITEMS: GalleryItem[] = RAW_ITEMS.filter((i) => isRealPhoto(i.src)).map((i) => {
+  const info = photoInfo(i.src)
+  return { ...i, caption: info?.caption ?? i.caption, alt: info?.alt }
+})
+const SHOWN_CATEGORIES = CATEGORIES.filter((c) => ITEMS.some((i) => i.category === c))
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -136,7 +146,7 @@ export default function GalleryPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary text-white">
         <div className="absolute inset-0 opacity-40">
-          <DriftBackdrop src={`${P}commercial-rooftop-solar-array-system.jpg`} />
+          <DriftBackdrop src="/pr/solar-roof.png" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/60" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
@@ -160,7 +170,7 @@ export default function GalleryPage() {
       {/* Gallery */}
       <section className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <GalleryGrid items={ITEMS} categories={CATEGORIES} />
+          <GalleryGrid items={ITEMS} categories={SHOWN_CATEGORIES} />
         </div>
       </section>
 

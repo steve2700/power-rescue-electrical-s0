@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
-export type GalleryItem = { src: string; caption: string; category: string }
+export type GalleryItem = { src: string; caption: string; category: string; alt?: string }
 
 export function GalleryGrid({ items, categories }: { items: GalleryItem[]; categories: string[] }) {
   const [active, setActive] = useState("All")
@@ -73,7 +73,7 @@ export function GalleryGrid({ items, categories }: { items: GalleryItem[]; categ
             >
               <Image
                 src={item.src}
-                alt={item.caption}
+                alt={item.alt ?? item.caption}
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -109,7 +109,9 @@ export function GalleryGrid({ items, categories }: { items: GalleryItem[]; categ
           </div>
 
           <div className="relative my-4 flex-1" onClick={(e) => e.stopPropagation()}>
-            <Image src={current.src} alt={current.caption} fill sizes="100vw" className="object-contain" priority />
+            {/* Plain img on purpose: it shows small photos at their real size instead of stretching them */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={current.src} alt={current.alt ?? current.caption} className="absolute inset-0 m-auto max-h-full max-w-full object-contain" />
           </div>
 
           <div className="flex items-center justify-between gap-4 text-white" onClick={(e) => e.stopPropagation()}>

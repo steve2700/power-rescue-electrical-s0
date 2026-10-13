@@ -39,26 +39,10 @@ const TELL_US = [
 ];
 
 const STRIP = [
-  {
-    src: "/pr/power-rescue-residential-distribution-board-installation.jpg",
-    alt: "Residential distribution board installation",
-    caption: "DB boards",
-  },
-  {
-    src: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg",
-    alt: "Electrical inspection with a multimeter",
-    caption: "Fault finding",
-  },
-  {
-    src: "/pr/power-rescue-residential-home-solar-system-installation.jpg",
-    alt: "Residential solar system installation",
-    caption: "Solar",
-  },
-  {
-    src: "/pr/inverter-install.png",
-    alt: "Hybrid inverter and battery installation",
-    caption: "Backup power",
-  },
+  { src: "/pr/power-rescue-residential-distribution-board-installation.jpg", alt: "New distribution board with an alarm keypad beside it", caption: "DB boards" },
+  { src: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg", alt: "Electrician testing a distribution board with a multimeter", caption: "Fault finding" },
+  { src: "/pr/power-rescue-residential-home-solar-system-installation.jpg", alt: "Solar panels installed on a brick house roof", caption: "Solar" },
+  { src: "/pr/power-rescue-hybrid-inverter-and-lithium-battery-backup-system.jpg", alt: "Wall-mounted hybrid inverter above three stacked lithium batteries", caption: "Backup power" },
 ];
 
 const jsonLd = [
@@ -242,8 +226,8 @@ export default function ContactPage() {
             <div className="flex flex-col overflow-hidden rounded-[28px] border border-border bg-secondary/60 p-8">
               <div className="relative -mx-8 -mt-8 mb-8 aspect-[16/9]">
                 <Image
-                  src="/pr/power-rescue-electrical-db-board-maintenance.jpg"
-                  alt="Electrician working on a DB board"
+                  src="/pr/maintenance-test.png"
+                  alt="Electrician testing an electrical installation"
                   fill
                   sizes="(min-width: 1024px) 33vw, 100vw"
                   className="object-cover"
@@ -274,8 +258,8 @@ export default function ContactPage() {
             <div className="flex flex-col overflow-hidden rounded-[28px] border border-border bg-secondary/60 p-8">
               <div className="relative -mx-8 -mt-8 mb-8 aspect-[16/9]">
                 <Image
-                  src="/pr/power-rescue-commercial-rooftop-solar-array-system.jpg"
-                  alt="Commercial rooftop solar array"
+                  src="/pr/solar-roof.png"
+                  alt="Rooftop solar panels"
                   fill
                   sizes="(min-width: 1024px) 33vw, 100vw"
                   className="object-cover"
@@ -469,7 +453,7 @@ export default function ContactPage() {
       {/* Closing CTA */}
       <section className="relative overflow-hidden bg-primary py-20 text-center text-white">
         <Image
-          src="/pr/power-rescue-industrial-three-phase-panel-wiring.jpg"
+          src="/pr/lighting-install.png"
           alt=""
           fill
           sizes="100vw"

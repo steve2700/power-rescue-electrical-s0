@@ -45,9 +45,9 @@ const ROLES = [
 
 const MOSAIC = [
   { src: "/pr/power-rescue-residential-distribution-board-installation.jpg", alt: "Residential distribution board installation" },
-  { src: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg", alt: "Electrical inspection with a multimeter" },
+  { src: "/pr/power-rescue-electrical-inspection-multimeter-testing.jpg", alt: "Electrician testing a distribution board with a multimeter and a checklist" },
   { src: "/pr/power-rescue-residential-home-solar-system-installation.jpg", alt: "Home solar installation" },
-  { src: "/pr/inverter-install.png", alt: "Hybrid inverter and battery installation" },
+  { src: "/pr/power-rescue-hybrid-inverter-and-lithium-battery-backup-system.jpg", alt: "Wall-mounted hybrid inverter above three stacked lithium batteries" },
 ]
 
 const jsonLd = [
@@ -243,7 +243,7 @@ export default function AboutPage() {
       {/* Team */}
       <section className="border-t border-border bg-secondary/50 py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[32px]">
+          <div className="relative mx-auto aspect-[4/3] w-full max-w-[460px] overflow-hidden rounded-[32px]">
             <Image
               src="/pr/power-rescue-solar-installation-team-on-commercial-roof.jpg"
               alt="Power Rescue installation team working on a commercial roof"
