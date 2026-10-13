@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+import { DriftBackdrop } from "@/components/moving-image"
 import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_NUMBER } from "@/components/contact-info"
 import { Tick } from "@/components/tick"
 import { JobCard } from "@/components/home/job-card"
@@ -102,14 +103,9 @@ export default function EmergencyElectricalRepairsPage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary text-white">
-        <Image
-          src="/pr/hero-db-board.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="-scale-x-100 object-cover opacity-60"
-        />
+        <div className="absolute inset-0 -scale-x-100 opacity-60">
+          <DriftBackdrop src="/pr/hero-db-board.png" />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/55" aria-hidden="true" />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
@@ -121,10 +117,10 @@ export default function EmergencyElectricalRepairsPage() {
               <span className="mx-2">/</span>
               <span className="text-white">Emergency electrical repairs</span>
             </nav>
-            <h1 className="mt-6 text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
+            <h1 className="rise mt-6 text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
               24/7 emergency electrician <span className="text-accent">across Gauteng.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75">
+            <p className="rise mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75 [--d:140ms]">
               Power gone? Breaker tripping? Burning smell? Registered electricians on call day and night in Johannesburg,
               Pretoria, the East and West Rand. COC issued.
             </p>
@@ -136,10 +132,10 @@ export default function EmergencyElectricalRepairsPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <div className="rise mt-9 flex flex-wrap items-center gap-4 [--d:300ms]">
               <a
                 href={`tel:${PHONE_TEL}`}
-                className="flex h-14 items-center rounded-full bg-white px-7 font-semibold text-primary transition-transform hover:scale-[1.02]"
+                className="call-pulse flex h-14 items-center rounded-full bg-white px-7 font-semibold text-primary transition-transform hover:scale-[1.02]"
               >
                 Call {PHONE_DISPLAY}
               </a>

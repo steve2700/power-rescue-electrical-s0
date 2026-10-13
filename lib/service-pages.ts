@@ -60,7 +60,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     ],
     gallery: [
       { src: `${P}electrical-wiring-and-conduit-installation.jpg`, alt: "Electrical wiring and conduit installation", caption: "Conduit and wiring" },
-      { src: `${P}commercial-sub-panel-installation.jpg`, alt: "Commercial sub-panel installation", caption: "Commercial sub-panel" },
+      { src: `${P}electricians-foundation-conduit-trenching-site.jpg`, alt: "Electricians laying conduit in a foundation trench on a building site", caption: "Conduit trenching on site" },
       { src: `${P}industrial-three-phase-panel-wiring.jpg`, alt: "Industrial three-phase panel wiring", caption: "Three-phase panel" },
       { src: `${P}residential-distribution-board-installation.jpg`, alt: "Residential distribution board installation", caption: "Residential distribution board" },
     ],
@@ -78,6 +78,69 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { q: "Can you add plug points or circuits to an existing house?", a: "Yes. We check your board has capacity first, then add the circuits and protection needed." },
     ],
     related: ["db-board-upgrades", "lighting-plug-point-installation", "electrical-coc-certificate"],
+  },
+
+  "commercial-industrial-electrical": {
+    slug: "commercial-industrial-electrical",
+    metaTitle: "Commercial & Industrial Electricians Gauteng | Power Rescue",
+    metaDescription:
+      "Commercial and industrial electrical work across Gauteng: sub-boards, three-phase panels, lighting, battery rooms and commercial solar. Registered electricians. Call 063 039 2007.",
+    h1: "Commercial and industrial electrical",
+    h1Accent: "keeping your business running.",
+    lead: "Shops, offices, warehouses and industrial sites. We install, repair and maintain the boards, wiring, lighting and solar your business depends on, and we plan the work around how you trade.",
+    heroImage: `${P}commercial-electrical-services.jpg`,
+    keyFacts: ["Shops, offices, warehouses and plants", "Three-phase and sub-boards", "Commercial solar and battery rooms", "COC issued"],
+    explorer: {
+      eyebrow: "What does your site need?",
+      heading: "Tell us about the site. We will tell you what it needs.",
+      intro: "Pick the closest match to see how we usually approach it.",
+      items: [
+        { label: "New fit-out or extension", meaning: "Shops, offices and workshops need circuits, lighting and boards planned around the layout and the equipment going in.", action: "We plan the layout with you, install conduit, wiring and sub-boards, then test and certify the installation." },
+        { label: "Three-phase supply or panel", meaning: "Machinery, pumps and heavy equipment often need a three-phase supply with correctly rated protection.", action: "We design, install and test the three-phase panel and wiring, and match the protection to the load." },
+        { label: "Main switchgear or sub-board work", meaning: "Older or overloaded boards cause trips and downtime, and they are harder to extend safely.", action: "We assess the board, repair or replace what is needed, and leave it clearly labelled." },
+        { label: "Commercial solar", meaning: "Most businesses use their power in daylight, which suits solar well, and large roofs can carry a lot of panels.", action: "We assess your roof and consumption, size the system around your operating hours and install it." },
+        { label: "Power factor and power quality", meaning: "Heavy motor loads can pull your power factor down, which some tariffs penalise and which wastes capacity.", action: "We look at your loads and, where it makes sense, install correction equipment such as a capacitor bank." },
+        { label: "Backup for critical equipment", meaning: "Servers, cold rooms, tills and security equipment cannot afford to switch off during an outage.", action: "We size an inverter and battery system around the equipment that must stay on, and install it neatly." },
+        { label: "Faults and planned maintenance", meaning: "Regular testing finds loose connections, worn breakers and overloaded circuits before they stop the business.", action: "We agree a schedule, test each installation and report what needs attention." },
+      ],
+    },
+    smallJobs: {
+      heading: "Maintenance and repairs, any size.",
+      intro: "A failed light fitting or a tripping circuit is a proper job to us. Tap what you need and message us.",
+      items: [
+        "Tripping circuits", "Lighting repairs", "Sub-board faults", "Extra plug points",
+        "Board labelling", "Battery room checks", "Solar panel cleaning", "Planned maintenance visits",
+      ],
+    },
+    includes: [
+      { title: "Site assessment and planning", copy: "We walk the site and plan around your equipment, layout and trading hours." },
+      { title: "Boards and switchgear", copy: "Sub-boards and distribution boards installed, repaired and clearly labelled." },
+      { title: "Three-phase wiring", copy: "Three-phase supply, panels and wiring for machinery and heavy loads." },
+      { title: "Commercial lighting", copy: "Ceiling wiring, lighting installation and repairs for offices, shops and warehouses." },
+      { title: "Solar and battery rooms", copy: "Rooftop solar and inverter and battery systems, with tidy cable management." },
+      { title: "Testing and COC", copy: "Every installation is tested and a Certificate of Compliance issued where required." },
+    ],
+    gallery: [
+      { src: `${P}commercial-sub-panel-installation.jpg`, alt: "Commercial sub-panel installation", caption: "Commercial sub-panel" },
+      { src: `${P}industrial-three-phase-panel-wiring.jpg`, alt: "Industrial three-phase panel wiring", caption: "Three-phase panel" },
+      { src: `${P}commercial-distribution-board-rail-wiring.jpg`, alt: "Commercial distribution board rail wiring", caption: "Distribution board wiring" },
+      { src: `${P}commercial-rooftop-solar-array-drone-view.jpg`, alt: "Commercial rooftop solar array seen from above", caption: "Commercial rooftop solar" },
+    ],
+    stepsHeading: "From site visit to certified installation.",
+    steps: [
+      { title: "Visit the site", copy: "We walk the site and agree what the business needs." },
+      { title: "Plan and quote", copy: "You get a clear quote and a plan that fits your operations." },
+      { title: "Install around you", copy: "We work in stages and around your trading hours where we can." },
+      { title: "Test and certify", copy: "We test everything, walk you through it and issue the certificate." },
+    ],
+    faqs: [
+      { q: "Do you work on commercial and industrial sites?", a: "Yes. We work on shops, offices, warehouses and industrial sites, from lighting and sub-boards to three-phase panels and rooftop solar." },
+      { q: "Can the work be done without stopping the business?", a: "We plan around your operating hours where we can, and work in stages so the disruption stays as small as possible. We agree this with you before we start." },
+      { q: "Do you install commercial solar?", a: "Yes. We size commercial solar around your daytime consumption and roof, and we can add battery backup for equipment that must stay on." },
+      { q: "Can you help with power factor correction?", a: "We can assess your loads and, where it makes sense, install correction equipment. Tell us about your site and we will say whether it is worth it." },
+      { q: "Do you issue a COC for commercial work?", a: "Yes. Our electricians are registered and we issue a Certificate of Compliance where the work requires one." },
+    ],
+    related: ["solar-installation", "inverter-battery-backup", "db-board-upgrades"],
   },
 
   "electrical-maintenance-fault-finding": {
@@ -115,7 +178,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { src: `${P}electrical-inspection-multimeter-testing.jpg`, alt: "Electrical inspection with multimeter testing", caption: "Inspection and testing" },
       { src: `${P}voltage-multimeter-testing-230v.jpg`, alt: "Voltage multimeter testing at 230V", caption: "Voltage testing" },
       { src: `${P}electrical-db-board-maintenance.jpg`, alt: "Electrical DB board maintenance", caption: "DB board maintenance" },
-      { src: `${P}commercial-ceiling-lighting-repair.jpg`, alt: "Commercial ceiling lighting repair", caption: "Commercial lighting repair" },
+      { src: `${P}outdoor-feeder-pillar-box-maintenance.jpg`, alt: "Maintenance on an outdoor feeder pillar box", caption: "Feeder pillar maintenance" },
     ],
     stepsHeading: "How we find and fix the fault.",
     steps: [
@@ -172,7 +235,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { src: `${P}residential-home-solar-system-installation.jpg`, alt: "Residential home solar system installation", caption: "Home solar system" },
       { src: `${P}corrugated-roof-solar-panel-array.jpg`, alt: "Solar panel array on a corrugated roof", caption: "Corrugated roof array" },
       { src: `${P}commercial-rooftop-solar-array-system.jpg`, alt: "Commercial rooftop solar array system", caption: "Commercial rooftop" },
-      { src: `${P}residential-solar-panel-setup.jpg`, alt: "Residential solar panel setup", caption: "Residential panel set-up" },
+      { src: `${P}solar-installation-team-on-commercial-roof.jpg`, alt: "Solar installation team working on a commercial roof", caption: "Installation team on a roof" },
     ],
     stepsHeading: "From first call to power from the sun.",
     steps: [
@@ -229,8 +292,8 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     gallery: [
       { src: "/pr/inverter-install.png", alt: "Hybrid inverter and lithium battery installed on a wall", caption: "Hybrid inverter and battery" },
       { src: `${P}outdoor-main-electrical-enclosure-box.jpg`, alt: "Outdoor main electrical enclosure", caption: "Outdoor enclosure" },
-      { src: `${P}residential-distribution-board-installation.jpg`, alt: "Residential distribution board installation", caption: "Distribution board" },
-      { src: "/pr/solar-roof.png", alt: "Rooftop solar panels", caption: "Add solar later" },
+      { src: `${P}hybrid-inverter-and-lithium-battery-backup-system.jpg`, alt: "Hybrid inverter and lithium battery backup system", caption: "Hybrid inverter and battery" },
+      { src: `${P}commercial-inverter-and-battery-bank-system.jpg`, alt: "Commercial inverter and battery bank system", caption: "Commercial battery bank" },
     ],
     stepsHeading: "From load shedding to backup power.",
     steps: [
@@ -335,7 +398,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { src: `${P}residential-distribution-board-installation.jpg`, alt: "Residential distribution board installation", caption: "New residential board" },
       { src: `${P}electrical-db-board-maintenance.jpg`, alt: "DB board maintenance", caption: "Board maintenance" },
       { src: "/pr/hero-db-board.png", alt: "Electrician working on a distribution board", caption: "On the board" },
-      { src: `${P}commercial-sub-panel-installation.jpg`, alt: "Commercial sub-panel installation", caption: "Commercial sub-panel" },
+      { src: `${P}commercial-distribution-board-rail-wiring.jpg`, alt: "Commercial distribution board rail wiring", caption: "Commercial board wiring" },
     ],
     stepsHeading: "Old board out, safe board in.",
     steps: [
@@ -387,7 +450,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { src: "/pr/lighting-install.png", alt: "Lighting installation", caption: "Lighting installation" },
       { src: `${P}commercial-ceiling-lighting-repair.jpg`, alt: "Commercial ceiling lighting repair", caption: "Commercial lighting" },
       { src: `${P}outdoor-cctv-security-light-repair.jpg`, alt: "Outdoor CCTV and security light repair", caption: "Security lighting" },
-      { src: `${P}electrical-wiring-and-conduit-installation.jpg`, alt: "Electrical wiring and conduit installation", caption: "Neat wiring" },
+      { src: `${P}commercial-interior-ceiling-wiring-installation.jpg`, alt: "Commercial interior ceiling wiring installation", caption: "Ceiling wiring" },
     ],
     stepsHeading: "From idea to lit-up.",
     steps: [
@@ -634,7 +697,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       { src: `${P}apollo-solar-geyser-rooftop-installation.jpg`, alt: "Apollo solar geyser rooftop installation", caption: "Rooftop solar geyser" },
       { src: `${P}residential-solar-geyser-tiled-roof.jpg`, alt: "Solar geyser on a tiled roof", caption: "Tiled roof installation" },
       { src: `${P}solar-panel-roof-maintenance-cleaning.jpg`, alt: "Solar panel roof maintenance and cleaning", caption: "Panel maintenance" },
-      { src: "/pr/solar-roof.png", alt: "Rooftop solar panels", caption: "Roof-mounted solar" },
+      { src: `${P}rooftop-solar-panels-and-solar-geyser-system.jpg`, alt: "Rooftop solar panels and solar geyser system", caption: "Panels and geyser system" },
     ],
     stepsHeading: "From cold showers to hot water.",
     steps: [

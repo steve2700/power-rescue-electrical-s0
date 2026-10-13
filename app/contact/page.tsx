@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { DriftBackdrop } from "@/components/moving-image";
 import {
   EMAIL,
   PHONE_DISPLAY,
@@ -116,14 +117,9 @@ export default function ContactPage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary text-white">
-        <Image
-          src="/pr/hero-db-board.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="-scale-x-100 object-cover opacity-50"
-        />
+        <div className="absolute inset-0 -scale-x-100 opacity-50">
+          <DriftBackdrop src="/pr/hero-db-board.png" />
+        </div>
         <div
           className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/60"
           aria-hidden="true"
@@ -137,11 +133,11 @@ export default function ContactPage() {
             <span className="mx-2">/</span>
             <span className="text-white">Contact</span>
           </nav>
-          <h1 className="mt-6 max-w-3xl text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
+          <h1 className="rise mt-6 max-w-3xl text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
             Need an electrician?{" "}
             <span className="text-accent">Talk to us now.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75">
+          <p className="rise mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75 [--d:140ms]">
             Call, WhatsApp or send a job card. You get a straight answer from a
             registered electrician team that covers Johannesburg, Pretoria, the
             East and West Rand.
@@ -158,10 +154,10 @@ export default function ContactPage() {
               </li>
             ))}
           </ul>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <div className="rise mt-9 flex flex-wrap items-center gap-4 [--d:300ms]">
             <a
               href={`tel:${PHONE_TEL}`}
-              className="flex h-14 items-center rounded-full bg-white px-7 font-semibold text-primary transition-transform hover:scale-[1.02]"
+              className="call-pulse flex h-14 items-center rounded-full bg-white px-7 font-semibold text-primary transition-transform hover:scale-[1.02]"
             >
               Call {PHONE_DISPLAY}
             </a>

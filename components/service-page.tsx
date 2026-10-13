@@ -5,6 +5,8 @@ import { Tick } from "@/components/tick"
 import { JobCard } from "@/components/home/job-card"
 import { ServiceExplorer } from "@/components/service-explorer"
 import { LoadPlanner } from "@/components/load-planner"
+import { DriftBackdrop } from "@/components/moving-image"
+import { Reveal } from "@/components/reveal"
 import { AREAS, SERVICES } from "@/lib/power-rescue"
 import type { ServicePageData } from "@/lib/service-pages"
 import { cn } from "@/lib/utils"
@@ -60,14 +62,9 @@ export function ServicePage({ data }: { data: ServicePageData }) {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary text-white">
-        <Image
-          src={data.heroImage}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="-scale-x-100 object-cover opacity-55"
-        />
+        <div className="absolute inset-0 -scale-x-100 opacity-55">
+          <DriftBackdrop src={data.heroImage} />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/55" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-primary to-transparent" aria-hidden="true" />
 
@@ -84,11 +81,11 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               <span className="mx-2">/</span>
               <span className="text-white">{name}</span>
             </nav>
-            <h1 className="mt-6 text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
+            <h1 className="rise mt-6 text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
               {data.h1} <span className="text-accent">{data.h1Accent}</span>
             </h1>
-            <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75">{data.lead}</p>
-            <ul className="mt-6 flex flex-wrap gap-2.5">
+            <p className="rise mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75 [--d:140ms]">{data.lead}</p>
+            <ul className="rise mt-6 flex flex-wrap gap-2.5 [--d:260ms]">
               {data.keyFacts.map((f) => (
                 <li
                   key={f}
@@ -99,10 +96,10 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 </li>
               ))}
             </ul>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <div className="rise mt-9 flex flex-wrap items-center gap-4 [--d:380ms]">
               <a
                 href={`tel:${PHONE_TEL}`}
-                className="flex h-14 items-center rounded-full bg-white px-7 font-semibold text-primary transition-transform hover:scale-[1.02]"
+                className="call-pulse flex h-14 items-center rounded-full bg-white px-7 font-semibold text-primary transition-transform hover:scale-[1.02]"
               >
                 Call {PHONE_DISPLAY}
               </a>
@@ -137,17 +134,56 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           </h2>
           <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {data.includes.map((inc, i) => (
-              <li key={inc.title} className="rounded-[28px] border border-border bg-secondary/60 p-6">
+              <Reveal as="li" key={inc.title} delay={(i % 3) * 90} className="rounded-[28px] border border-border bg-secondary/60 p-6">
                 <p className="font-display text-sm font-bold tabular-nums text-muted-foreground">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <h3 className="mt-1 font-display text-xl font-bold text-foreground">{inc.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{inc.copy}</p>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
       </section>
+
+      {/* Repairs, big or small */}
+      {data.smallJobs && (
+        <section className="bg-primary py-20 text-white lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">No job too small</p>
+                <h2 className="mt-4 text-balance font-display text-4xl font-bold leading-[1.05] sm:text-5xl">
+                  {data.smallJobs.heading}
+                </h2>
+                <p className="mt-5 max-w-md leading-relaxed text-white/75">{data.smallJobs.intro}</p>
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  className="mt-8 inline-flex h-14 items-center rounded-full bg-accent px-7 font-semibold text-accent-foreground transition-transform hover:scale-[1.02]"
+                >
+                  Call {PHONE_DISPLAY}
+                </a>
+              </div>
+              <ul className="flex flex-wrap content-start gap-2.5">
+                {data.smallJobs.items.map((item) => (
+                  <li key={item}>
+                    <a
+                      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                        `Hi Power Rescue, I need a repair: ${item}.`,
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex rounded-full border border-white/20 bg-white/[0.06] px-5 py-3 text-sm font-medium transition-colors hover:border-accent hover:bg-accent hover:text-accent-foreground"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Gallery */}
       <section className="bg-background pb-20 lg:pb-24">
@@ -171,7 +207,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   alt={g.alt}
                   fill
                   sizes={i === 0 || i === 3 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"}
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={cn("object-cover", ["drift-a", "drift-b", "drift-c"][i % 3])}
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 to-transparent p-4 pt-12">
                   <p className="text-sm font-semibold text-white">{g.caption}</p>
@@ -190,11 +226,11 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           </h2>
           <ol className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {data.steps.map((s, i) => (
-              <li key={s.title} className="border-t-2 border-primary pt-6">
+              <Reveal as="li" key={s.title} delay={i * 110} className="border-t-2 border-primary pt-6">
                 <span className="font-display text-6xl font-extrabold leading-none tabular-nums">{i + 1}</span>
                 <h3 className="mt-5 font-display text-2xl font-bold">{s.title}</h3>
                 <p className="mt-2 max-w-sm leading-relaxed text-primary/75">{s.copy}</p>
-              </li>
+              </Reveal>
             ))}
           </ol>
           <a
@@ -300,25 +336,6 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           </a>
         </div>
       </section>
-
-      {/* Sticky mobile call bar */}
-      <div className="h-20 md:hidden" aria-hidden="true" />
-      <div className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-2 gap-2 border-t border-white/10 bg-primary p-3 md:hidden">
-        <a
-          href={`tel:${PHONE_TEL}`}
-          className="flex h-12 items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-foreground"
-        >
-          Call now
-        </a>
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex h-12 items-center justify-center rounded-full border border-white/25 text-sm font-semibold text-white"
-        >
-          WhatsApp
-        </a>
-      </div>
     </>
   )
 }

@@ -144,7 +144,15 @@ export function Footer() {
             {"© "}
             {year} Power Rescue Electrical. All rights reserved.
           </p>
-          <p>www.powerrescue.co.za</p>
+          <p className="flex flex-wrap items-center gap-x-5 gap-y-1">
+            <Link href="/privacy-policy" className="transition-colors hover:text-white">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-of-service" className="transition-colors hover:text-white">
+              Terms of Service
+            </Link>
+            <span>www.powerrescue.co.za</span>
+          </p>
         </div>
       </div>
     </footer>

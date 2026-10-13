@@ -25,6 +25,14 @@ export const SERVICES: Service[] = [
     image: "/pr/lighting-install.png",
   },
   {
+    slug: "commercial-industrial-electrical",
+    title: "Commercial and Industrial Electrical",
+    short: "Sub-panels, three-phase, solar and battery rooms",
+    copy: "Electrical work for shops, offices, warehouses and industrial sites: sub-boards, three-phase panels, lighting, battery rooms and commercial solar, planned around keeping your business running.",
+    tag: "Business and industry",
+    image: "/pr/power-rescue-industrial-main-switchgear-orange-panels.jpg",
+  },
+  {
     slug: "electrical-maintenance-fault-finding",
     title: "Electrical Maintenance and Fault Finding",
     short: "Scheduled checks and repairs",

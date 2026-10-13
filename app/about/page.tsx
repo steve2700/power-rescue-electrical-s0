@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+import { DriftBackdrop } from "@/components/moving-image"
 import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_NUMBER } from "@/components/contact-info"
 import { Tick } from "@/components/tick"
 import { AREAS, SERVICES } from "@/lib/power-rescue"
@@ -83,14 +84,9 @@ export default function AboutPage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary text-white">
-        <Image
-          src="/pr/hero-db-board.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="-scale-x-100 object-cover opacity-50"
-        />
+        <div className="absolute inset-0 -scale-x-100 opacity-50">
+          <DriftBackdrop src="/pr/hero-db-board.png" />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/60" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
           <nav aria-label="Breadcrumb" className="text-sm text-white/60">
@@ -100,10 +96,10 @@ export default function AboutPage() {
             <span className="mx-2">/</span>
             <span className="text-white">About</span>
           </nav>
-          <h1 className="mt-6 max-w-3xl text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
+          <h1 className="rise mt-6 max-w-3xl text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
             Gauteng&apos;s electricians, <span className="text-accent">done right.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75">
+          <p className="rise mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75 [--d:140ms]">
             We fix the fault, then stay on for the installations, maintenance and solar that stop it happening again.
             Homes and businesses across Johannesburg, Pretoria, the East and West Rand.
           </p>
@@ -161,7 +157,7 @@ export default function AboutPage() {
                 key={m.src}
                 className={`relative overflow-hidden rounded-[24px] ${i % 3 === 0 ? "aspect-[4/5]" : "aspect-square"} ${i === 1 || i === 2 ? "mt-0" : ""}`}
               >
-                <Image src={m.src} alt={m.alt} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover" />
+                <Image src={m.src} alt={m.alt} fill sizes="(min-width: 1024px) 25vw, 50vw" className={["object-cover drift-a", "object-cover drift-b", "object-cover drift-c", "object-cover drift-a"][i % 4]} />
               </div>
             ))}
           </div>
@@ -249,8 +245,8 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[32px]">
             <Image
-              src="/pr/power-rescue-commercial-sub-panel-installation.jpg"
-              alt="Power Rescue electricians installing a commercial sub-panel"
+              src="/pr/power-rescue-solar-installation-team-on-commercial-roof.jpg"
+              alt="Power Rescue installation team working on a commercial roof"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"

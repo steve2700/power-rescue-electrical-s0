@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+import { DriftBackdrop } from "@/components/moving-image"
 import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_NUMBER } from "@/components/contact-info"
 import { GalleryGrid, type GalleryItem } from "@/components/gallery-grid"
 
@@ -23,6 +24,7 @@ const P = "/pr/power-rescue-"
 
 const CATEGORIES = [
   "DB boards and panels",
+  "Commercial and industrial",
   "Wiring and installations",
   "Testing and maintenance",
   "Solar and solar geysers",
@@ -83,6 +85,31 @@ const ITEMS: GalleryItem[] = [
   { src: `${P}nemtek-wizord-4-electric-fence-energizer.jpg`, caption: "Nemtek energiser installation", category: "Gates and electric fencing" },
   { src: `${P}nemtek-electric-fence-warning-sign.jpg`, caption: "Electric fence warning sign", category: "Gates and electric fencing" },
   { src: `${P}electric-fence-installation-warning-sign.jpg`, caption: "Electric fence installation", category: "Gates and electric fencing" },
+  // Commercial and industrial
+  { src: `${P}commercial-electrical-services.jpg`, caption: "Commercial electrical services", category: "Commercial and industrial" },
+  { src: `${P}industrial-main-switchgear-orange-panels.jpg`, caption: "Industrial main switchgear", category: "Commercial and industrial" },
+  { src: `${P}industrial-capacitor-bank-power-factor-correction.jpg`, caption: "Capacitor bank for power factor correction", category: "Commercial and industrial" },
+  { src: `${P}commercial-distribution-board-rail-wiring.jpg`, caption: "Commercial distribution board wiring", category: "Commercial and industrial" },
+  { src: `${P}commercial-interior-ceiling-wiring-installation.jpg`, caption: "Commercial ceiling wiring installation", category: "Commercial and industrial" },
+  { src: `${P}commercial-battery-room-cable-management.jpg`, caption: "Battery room cable management", category: "Commercial and industrial" },
+  { src: `${P}commercial-battery-storage-room-air-conditioning.jpg`, caption: "Battery storage room with air conditioning", category: "Commercial and industrial" },
+  { src: `${P}commercial-inverter-and-battery-bank-system.jpg`, caption: "Commercial inverter and battery bank", category: "Commercial and industrial" },
+  { src: `${P}containerized-industrial-solar-generator-system.jpg`, caption: "Containerised industrial solar generator", category: "Commercial and industrial" },
+  // More solar
+  { src: `${P}commercial-rooftop-solar-array-drone-view.jpg`, caption: "Commercial rooftop solar from above", category: "Solar and solar geysers" },
+  { src: `${P}commercial-park-rooftop-solar-installation-aerial.webp`, caption: "Business park rooftop solar", category: "Solar and solar geysers" },
+  { src: `${P}industrial-warehouse-rooftop-solar-system.jpg`, caption: "Warehouse rooftop solar system", category: "Solar and solar geysers" },
+  { src: `${P}office-complex-solar-panel-roof-installation.jpg`, caption: "Office complex solar roof installation", category: "Solar and solar geysers" },
+  { src: `${P}solar-installation-team-on-commercial-roof.jpg`, caption: "Installation team on a commercial roof", category: "Solar and solar geysers" },
+  { src: `${P}rooftop-solar-panels-and-solar-geyser-system.jpg`, caption: "Rooftop solar panels and solar geyser", category: "Solar and solar geysers" },
+  { src: "/pr/solars_1.jpg", caption: "Solar installation", category: "Solar and solar geysers" },
+  // More wiring, testing and repair work
+  { src: `${P}residential-electrical-services.jpg`, caption: "Residential electrical services", category: "Wiring and installations" },
+  { src: `${P}electricians-foundation-conduit-trenching-site.jpg`, caption: "Conduit trenching on a building site", category: "Wiring and installations" },
+  { src: `${P}residential-pool-filter-and-water-pump-system.jpg`, caption: "Pool filter and water pump system", category: "Wiring and installations" },
+  { src: `${P}electrical-equipment-repair.jpg`, caption: "Electrical equipment repair", category: "Testing and maintenance" },
+  { src: `${P}outdoor-feeder-pillar-box-maintenance.jpg`, caption: "Feeder pillar box maintenance", category: "Testing and maintenance" },
+  { src: `${P}technician-repairing-outdoor-electrical-distribution-box.jpg`, caption: "Repairing an outdoor distribution box", category: "Testing and maintenance" },
 ]
 
 const jsonLd = {
@@ -108,14 +135,9 @@ export default function GalleryPage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary text-white">
-        <Image
-          src={`${P}commercial-rooftop-solar-array-system.jpg`}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-40"
-        />
+        <div className="absolute inset-0 opacity-40">
+          <DriftBackdrop src={`${P}commercial-rooftop-solar-array-system.jpg`} />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/60" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
           <nav aria-label="Breadcrumb" className="text-sm text-white/60">
@@ -125,10 +147,10 @@ export default function GalleryPage() {
             <span className="mx-2">/</span>
             <span className="text-white">Our work</span>
           </nav>
-          <h1 className="mt-6 max-w-3xl text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
+          <h1 className="rise mt-6 max-w-3xl text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl">
             Real jobs. <span className="text-accent">Real electricians.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75">
+          <p className="rise mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75 [--d:140ms]">
             {ITEMS.length} photos from our own jobs across Gauteng. Filter by type of work, tap any photo to see it full
             size.
           </p>

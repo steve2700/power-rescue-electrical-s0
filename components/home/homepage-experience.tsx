@@ -1,6 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_NUMBER } from "@/components/contact-info"
+import { DriftBackdrop } from "@/components/moving-image"
+import { PhotoReel, RollingColumns, type Photo } from "@/components/photo-motion"
+import { Reveal } from "@/components/reveal"
 import { Tick } from "@/components/tick"
 import { AREAS, SERVICES } from "@/lib/power-rescue"
 import { JobCard } from "./job-card"
@@ -16,17 +19,41 @@ const REPAIR_SLUGS = [
   "db-board-upgrades",
 ]
 
+const PR = "/pr/power-rescue-"
+
+const REEL: Photo[] = [
+  { src: `${PR}residential-distribution-board-installation.jpg`, alt: "New residential distribution board installed" },
+  { src: `${PR}electric-fence-repair-and-installation.jpg`, alt: "Electric fence repair and installation" },
+  { src: `${PR}automatic-sliding-gate-motor-installation.jpg`, alt: "Sliding gate motor installation" },
+  { src: `${PR}rooftop-solar-panels-and-solar-geyser-system.jpg`, alt: "Rooftop solar panels and a solar geyser" },
+  { src: `${PR}residential-cctv-camera-installation.jpg`, alt: "Residential CCTV camera installation" },
+  { src: `${PR}commercial-sub-panel-installation.jpg`, alt: "Commercial sub-panel installation" },
+  { src: `${PR}hybrid-inverter-and-lithium-battery-backup-system.jpg`, alt: "Hybrid inverter and lithium battery backup" },
+  { src: `${PR}technician-repairing-outdoor-electrical-distribution-box.jpg`, alt: "Technician repairing an outdoor distribution box" },
+  { src: `${PR}industrial-three-phase-panel-wiring.jpg`, alt: "Industrial three-phase panel wiring" },
+  { src: `${PR}dahua-intercom-access-control-keypad.jpg`, alt: "Intercom and access control keypad" },
+  { src: `${PR}commercial-rooftop-solar-array-drone-view.jpg`, alt: "Commercial rooftop solar array from above" },
+  { src: `${PR}industrial-main-switchgear-orange-panels.jpg`, alt: "Industrial main switchgear" },
+  { src: `${PR}containerized-industrial-solar-generator-system.jpg`, alt: "Containerised industrial solar generator" },
+]
+
+const BACKUP_LEFT: Photo[] = [
+  { src: "/pr/inverter-install.png", alt: "Hybrid inverter and lithium battery on a garage wall" },
+  { src: `${PR}commercial-inverter-and-battery-bank-system.jpg`, alt: "Commercial inverter and battery bank" },
+  { src: `${PR}residential-home-solar-system-installation.jpg`, alt: "Home solar system installation" },
+]
+const BACKUP_RIGHT: Photo[] = [
+  { src: `${PR}hybrid-inverter-and-lithium-battery-backup-system.jpg`, alt: "Hybrid inverter and lithium battery backup system" },
+  { src: `${PR}commercial-rooftop-solar-array-system.jpg`, alt: "Commercial rooftop solar array" },
+  { src: `${PR}commercial-battery-room-cable-management.jpg`, alt: "Neat cable management in a battery room" },
+]
+
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-primary text-white">
-      <Image
-        src="/pr/hero-db-board.png"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="-scale-x-100 object-cover opacity-70"
-      />
+      <div className="absolute inset-0 -scale-x-100 opacity-70">
+        <DriftBackdrop src="/pr/hero-db-board.png" />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/55" aria-hidden="true" />
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-primary to-transparent" aria-hidden="true" />
 
@@ -55,16 +82,16 @@ function Hero() {
             </div>
           </div>
 
-          <h1 className="mt-8 text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl xl:text-7xl">
-            When the power goes, <span className="text-accent">we come running.</span>
+          <h1 className="rise mt-8 text-balance font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl xl:text-7xl">
+            When the power goes, <span className="power-on text-accent">we come running.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75">
+          <p className="rise mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/75 [--d:160ms]">
             Power Rescue Electrical sorts out tripping breakers, dead plugs and burnt wiring, then stays on for the
             installations, maintenance, solar, fences, CCTV and gate motors that keep your property running.{" "}
             <span className="font-semibold text-white">Homes and businesses across Gauteng. No job too small.</span>
           </p>
 
-          <ul className="mt-8 flex flex-wrap gap-2.5">
+          <ul className="rise mt-8 flex flex-wrap gap-2.5 [--d:300ms]">
             {HERO_PILLS.map((p) => (
               <li
                 key={p}
@@ -76,10 +103,10 @@ function Hero() {
             ))}
           </ul>
 
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <div className="rise mt-9 flex flex-wrap items-center gap-4 [--d:440ms]">
             <a
               href={`tel:${PHONE_TEL}`}
-              className="flex h-14 items-center rounded-full bg-white px-7 font-semibold text-primary transition-transform hover:scale-[1.02]"
+              className="call-pulse flex h-14 items-center rounded-full bg-white px-7 font-semibold text-primary transition-transform hover:scale-[1.02]"
             >
               Call {PHONE_DISPLAY}
             </a>
@@ -90,10 +117,24 @@ function Hero() {
           </div>
         </div>
 
-        <div className="lg:pl-4">
+        <div className="rise lg:pl-4 [--d:260ms]">
           <JobCard />
         </div>
       </div>
+    </section>
+  )
+}
+
+function WorkReel() {
+  return (
+    <section className="overflow-hidden border-b border-border bg-secondary/50 py-10 lg:py-12">
+      <div className="mx-auto mb-6 flex max-w-7xl items-end justify-between gap-4 px-4 sm:px-6">
+        <p className="text-sm font-semibold text-muted-foreground">Recent jobs across Gauteng</p>
+        <Link href="/gallery" className="text-sm font-semibold text-primary hover:underline">
+          See all our work
+        </Link>
+      </div>
+      <PhotoReel photos={REEL} />
     </section>
   )
 }
@@ -134,8 +175,10 @@ function Services() {
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2">
           {featured.map((s, i) => (
-            <article
+            <Reveal
+              as="article"
               key={s.slug}
+              delay={(i % 2) * 110}
               className="group relative overflow-hidden rounded-[28px] border border-border bg-card"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
@@ -162,14 +205,16 @@ function Services() {
                 <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">{s.copy}</p>
                 <p className="mt-4 text-sm font-semibold text-primary group-hover:underline">Learn more</p>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
 
-        <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((s, i) => (
-            <li
+            <Reveal
+              as="li"
               key={s.slug}
+              delay={(i % 4) * 80}
               className="relative rounded-[28px] border border-border bg-secondary/60 p-6 transition-colors hover:bg-accent/25"
             >
               <p className="font-display text-sm font-bold tabular-nums text-muted-foreground">
@@ -181,7 +226,7 @@ function Services() {
                 </Link>
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
-            </li>
+            </Reveal>
           ))}
         </ul>
 
@@ -273,15 +318,7 @@ function Backup() {
   return (
     <section className="bg-background py-20 lg:py-28">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[32px]">
-          <Image
-            src="/pr/inverter-install.png"
-            alt="Hybrid inverter and lithium battery installed on a garage wall"
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover"
-          />
-        </div>
+        <RollingColumns left={BACKUP_LEFT} right={BACKUP_RIGHT} label="Solar and backup power installations" />
         <div>
           <p className="text-sm font-semibold text-muted-foreground">Solar and backup power</p>
           <h2 className="mt-3 text-balance font-display text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl">
@@ -363,6 +400,7 @@ export function HomepageExperience() {
   return (
     <>
       <Hero />
+      <WorkReel />
       <Promises />
       <Services />
       <Repairs />

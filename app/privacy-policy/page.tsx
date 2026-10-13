@@ -260,7 +260,7 @@ export default function PrivacyPolicyPage() {
             <li>Address: JD House, 27 Stiemens Street, Braamfontein, Johannesburg, 2001</li>
             <li>Phone: 010 023 5200</li>
             <li>
-[O              Website:{" "}
+              Website:{" "}
               <a
                 href="https://inforegulator.org.za"
                 target="_blank"
