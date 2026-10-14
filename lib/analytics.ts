@@ -4,7 +4,7 @@
 // Until GOOGLE_ADS_CONVERSION_ID is set, these functions do nothing — safe to
 // leave blank while you're not running ads yet.
 
-export const GOOGLE_ADS_CONVERSION_ID = "" // e.g. "AW-123456789"
+export const GOOGLE_ADS_CONVERSION_ID = "AW-18512805415" // e.g. "AW-123456789"
 
 export const CONVERSION_LABELS = {
   call: "", // label for phone call clicks
