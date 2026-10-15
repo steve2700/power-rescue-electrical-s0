@@ -8,6 +8,7 @@ import "./motion.css"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FloatingActions } from "@/components/floating-actions"
+import { ClickTracking } from "@/components/click-tracking"
 import { GOOGLE_ADS_CONVERSION_ID } from "@/lib/analytics"
 import { AREAS, SERVICES } from "@/lib/power-rescue"
 import { SITE_URL as SITE } from "@/lib/site"
@@ -145,6 +146,7 @@ export default function RootLayout({
         {/* Keeps the footer clear of the sticky mobile Call / WhatsApp bar */}
         <div className="h-[76px] md:hidden" aria-hidden="true" />
         <FloatingActions />
+        <ClickTracking />
         <Analytics />
         <SpeedInsights />
       </body>
